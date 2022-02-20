@@ -32,7 +32,7 @@ public class ClientDB {
     }
     
 	public static SessionFactory getSessionFactory() {
-		
+		System.out.println("DB cls is called");
 		return sessionFactory;
 	}
 

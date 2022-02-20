@@ -1,6 +1,13 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.CookieHandler;
+import java.net.CookieManager;
+import java.net.CookieStore;
+import java.net.HttpCookie;
+import java.net.URL;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,18 +41,37 @@ public class ClientController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		if(password.equals(obj.getPassword())) {
-			
+		if(obj!=null && password.equals(obj.getPassword())) {
+			try {
+	            // instantiate CookieManager
+	            CookieManager manager = new CookieManager();
+	            CookieHandler.setDefault(manager);
+	            CookieStore cookieJar =  manager.getCookieStore();
+
+	            // create cookie
+	            HttpCookie cookie = new HttpCookie("UserName","UserNameCookieItisworking");
+
+	            // add cookie to CookieStore for a
+	            // particular URL
+	            URL url = new URL("http://localhost:8084/Bank_Account_Management/home.html");
+	            cookieJar.add(url.toURI(), cookie);
+	            System.out.println("Added cookie using cookie handler");
+	        } catch(Exception e) {
+	            System.out.println("Unable to set cookie using CookieHandler");
+	            e.printStackTrace();
+	        }
+			System.out.println("Password-->"+obj.getPassword());
 			session.setAttribute("userName", user);
-			session.setAttribute("String", obj.getPassword());
-			response.sendRedirect("login.html");
+			session.setAttribute("password", obj.getPassword());
+			session.setAttribute("object", obj);
+			response.sendRedirect("home.html");
 			
 		}
 		else {
 			err="Invalid UserName/Password";
 			request.setAttribute("loginerr", err);
-			RequestDispatcher rd=request.getRequestDispatcher("login.html");
-			rd.forward(request, response);
+			PrintWriter out = response.getWriter();
+			response.sendRedirect("invalidlogin.html");
 		}
 	}
 

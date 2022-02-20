@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body onLoad="getCookie()">
+<script type="text/javascript">
+function getCookie() {
+	  let decodedCookie = decodeURIComponent(document.cookie);
+	  let ca = decodedCookie.split(';');
+	  for(let i = 0; i <ca.length; i++) {
+	    let c = ca[i];
+	    console.log(c);
+	  }
+	  console.log("No output ....>")
+}
+</script>
+
+	<center>
+<form action="DepositController" method="POST" style="border:orange; border-width:5px; border-style:solid;">
+<h1>Welcome To Online Banking:</h1>
+<div id="pass">No Password</div>
+<input type="text" name="depositAmount" placeholder="Amount">
+<input type="submit"  value="deposit">
+</form>
+</center>
+<h2>Reports</h2><br><br>
+<div style="float:left">
+<form >
+
+</form>
+<button id="deposit">Deposit</button>
+<button id="dailyT">TodaysTranscation</button>
+<button id="outStanding">Outstanding Report</button>
+</div>
+</body>
+</html>
