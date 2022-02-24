@@ -24,10 +24,6 @@ public class ClientController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String err="";
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user=request.getParameter("user");
@@ -42,37 +38,35 @@ public class ClientController extends HttpServlet {
 		}
 		
 		if(obj!=null && password.equals(obj.getPassword())) {
-			try {
-	            // instantiate CookieManager
-	            CookieManager manager = new CookieManager();
-	            CookieHandler.setDefault(manager);
-	            CookieStore cookieJar =  manager.getCookieStore();
-
-	            // create cookie
-	            HttpCookie cookie = new HttpCookie("UserName","UserNameCookieItisworking");
-
-	            // add cookie to CookieStore for a
-	            // particular URL
-	            URL url = new URL("http://localhost:8084/Bank_Account_Management/home.html");
-	            cookieJar.add(url.toURI(), cookie);
-	            System.out.println("Added cookie using cookie handler");
-	        } catch(Exception e) {
-	            System.out.println("Unable to set cookie using CookieHandler");
-	            e.printStackTrace();
-	        }
+			
 			System.out.println("Password-->"+obj.getPassword());
 			session.setAttribute("userName", user);
 			session.setAttribute("password", obj.getPassword());
 			session.setAttribute("object", obj);
-			response.sendRedirect("home.html");
+			response.sendRedirect("Main.html");
 			
 		}
 		else {
 			err="Invalid UserName/Password";
 			request.setAttribute("loginerr", err);
 			PrintWriter out = response.getWriter();
-			response.sendRedirect("invalidlogin.html");
+			response.sendRedirect("invaliduser.html");
 		}
 	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
+		Object obj =session.getAttribute("object");
+		Client cobj1=(Client) obj;
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.print("<html><body style='background-color: #4CAF50;'><center><h1>Account Details</h1><br>");
+		out.print("<h4>Name : "+cobj1.getClientName()+"</h4><br>");
+		out.print("<h4>User Name : "+cobj1.getUserName()+"</h4><br>");
+		out.print("<h4>Account No.   : "+cobj1.getClientAccount()+"</h4><br>");
+		out.print("<h4>Balance : "+cobj1.getAccountBalance()+"</h4><br>");
+		out.print("<h4>Date-of-Joining: "+cobj1.getDoj()+"</h4><br></center></body>");
+		//)
+	}
+
 
 }

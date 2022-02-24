@@ -20,23 +20,26 @@
             <span class="wrap"></span>
         </a>
         <h1>
-            Total Balance
+            Secured Transcation 
         </h1>
         <label id="acctBalanceLbl"></label>
     </div>
 
     <div id="inputs">
+    <form action="DepositController" method="POST">
         <h2>
             Deposit
         </h2>
-        <input type="text" id="userDeposit" required>
-        <button id="btnDeposit">Deposit</button>
-
+        <input type="text" id="userDeposit" name="depositAmount" required>
+        <input type="submit" value="Deposit">
+	</form>
+	<form action="WithdrawController" method="POST">
         <h2>
             Withdraw
         </h2>
-        <input type="text" id="userWithdraw" required>
-        <button id="btnWithdraw">Withdraw</button>
+        <input type="text" id="userWithdraw" name="withdrawAmount" required>
+        <input type="submit" value="withdraw">
+    </form>
 <br>
 <br>
 To view Transaction history, Click the button below.

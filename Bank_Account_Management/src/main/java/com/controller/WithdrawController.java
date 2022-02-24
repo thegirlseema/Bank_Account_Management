@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +21,20 @@ public class WithdrawController extends HttpServlet {
 		HttpSession session=request.getSession();
 		Object obj =session.getAttribute("object");
 		Client cobj1=(Client) obj;
+		if(amount<cobj1.getAccountBalance())
+		{
 		ClientService service=new ClientService();
 		Client cobj2=service.withdraw(amount, cobj1);
 		session.setAttribute("object", cobj2);
-		response.sendRedirect("home.jsp");
+		response.sendRedirect("Main.html");
+		}
+		else {
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+			out.print("<center><h1>Withdraw Failed</h1><br><h2>"
+					+ "Withdraw amount is greater than Account Balance</h2>"
+					+ "Account Balance=>"+cobj1.getAccountBalance()+"</center>");
+		}
 	}
 
 }

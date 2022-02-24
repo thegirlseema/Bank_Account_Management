@@ -22,7 +22,7 @@ public class DepositController extends HttpServlet {
 		ClientService service=new ClientService();
 		Client cobj2=service.deposit(amount, cobj1);
 		session.setAttribute("object", cobj2);
-		response.sendRedirect("home.jsp");
+		response.sendRedirect("Main.html");
 		
 	}
 
