@@ -25,14 +25,14 @@ public class ReportController extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			out.print("<html><body style='background-color: #4CAF50;'><center><h1>Last Transaction</h1><br>");
 			out.print("<br><br><h2>Last Deposit => "+cobj1.getDeposit()+"</h2><br>");
-			out.print("<br><h2>Last Withdraw => "+cobj1.getWithdraw()+"</h2></body></center></html>");
+			out.print("<br><h2>Last Withdraw => "+cobj1.getWithdraw()+"</h2><br><a href='Main.html'><button>Home</button> </a></body></center></html>");
 		}
 		else if(str.equals("Outstanding-Balance")) {
 			response.setContentType("text/html");
 			PrintWriter out = response.getWriter();
 			out.print("<html><body style='background-color: #4CAF50;'><center><h1>Outstanding Report</h1><br>");
 			out.print("<br><h2>Current Balance => "+cobj1.getAccountBalance()+"</h2><br><br>");
-			out.print("<h2>Outstanding Balance => "+cobj1.getOutstandingBalance()+"</h2></body></center></html>");
+			out.print("<h2>Outstanding Balance => "+cobj1.getOutstandingBalance()+"</h2><br><a href='Main.html'><button>Home</button> </a></body></center></html>");
 		}
 	}
 

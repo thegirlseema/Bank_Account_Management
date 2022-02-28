@@ -28,6 +28,7 @@ public class ClientDAO
 		{
 			cobj=c;
 			System.out.println(cobj.getAccountBalance());
+			
 		}
 		t.commit();
 		return cobj;

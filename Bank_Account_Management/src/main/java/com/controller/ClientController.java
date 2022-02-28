@@ -59,13 +59,12 @@ public class ClientController extends HttpServlet {
 		Client cobj1=(Client) obj;
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		out.print("<html><body style='background-color: #4CAF50;'><center><h1>Account Details</h1><br>");
+		out.print("<html><body style='background-color:  rgb(177, 253, 200);'><center><h1>Account Details</h1><br>");
 		out.print("<h4>Name : "+cobj1.getClientName()+"</h4><br>");
 		out.print("<h4>User Name : "+cobj1.getUserName()+"</h4><br>");
 		out.print("<h4>Account No.   : "+cobj1.getClientAccount()+"</h4><br>");
 		out.print("<h4>Balance : "+cobj1.getAccountBalance()+"</h4><br>");
-		out.print("<h4>Date-of-Joining: "+cobj1.getDoj()+"</h4><br></center></body>");
-		//)
+		out.print("<h4>Date-of-Joining: "+cobj1.getDoj()+"</h4><br><a href='Main.html'><button>Home</button> </a></center></body>");
 	}
 
 
