@@ -1,7 +1,5 @@
 package com.client;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,55 +8,66 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TRANSACTION2")
+@Table(name = "TRANSACTIONDET")
 public class ClientTransaction {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="SNO")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "SNO")
 	private long sno;
-	
-	@Column(name="TDATE")
-	private Date date;
-	
-	@Column(name="USERNAME")
+
+	@Column(name = "TDATE")
+	private String date;
+
+	@Column(name = "USERNAME")
 	private String username;
 	
+	@Column(name = "TYPE")
+	private String type;
 	
-	@Column(name="WITHDRAW")
-	private long withdraw;
-	
-	@Column(name="DEPOSIT")
-	private long deposit;
-	
+	@Column(name = "AMOUNT")
+	private long amount;
+
 	public long getSno() {
 		return sno;
 	}
+
 	public void setSno(long sno) {
 		this.sno = sno;
 	}
-	public Date getDate() {
+
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+
+	public void setDate(String date) {
 		this.date = date;
 	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public long getWithdraw() {
-		return withdraw;
+
+	public String getType() {
+		return type;
 	}
-	public void setWithdraw(long withdraw) {
-		this.withdraw = withdraw;
+
+	public void setType(String type) {
+		this.type = type;
 	}
-	public long getDeposit() {
-		return deposit;
+
+	public long getAmount() {
+		return amount;
 	}
-	public void setDeposit(long deposit) {
-		this.deposit = deposit;
+
+	public void setAmount(long amount) {
+		this.amount = amount;
 	}
+
+	
 
 }
