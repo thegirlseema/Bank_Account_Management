@@ -2,6 +2,7 @@ package com.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.client.Client;
+import com.client.ClientTransaction;
+import com.clientService.ClientService;
 
 @WebServlet("/Report")
 public class ReportController extends HttpServlet {
@@ -33,6 +36,21 @@ public class ReportController extends HttpServlet {
 			out.print("<html><body style='background-color: #4CAF50;'><center><h1>Outstanding Report</h1><br>");
 			out.print("<br><h2>Current Balance => "+cobj1.getAccountBalance()+"</h2><br><br>");
 			out.print("<h2>Outstanding Balance => "+cobj1.getOutstandingBalance()+"</h2><br><a href='Main.html'><button>Home</button> </a></body></center></html>");
+		}
+		else if(str.equals("OneMonthReport")) {
+			ClientService service=new ClientService();
+			List<ClientTransaction> cTrans=service.oneMonthReport(cobj1);
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+			out.print("<html> <style>h1{color: #0ae312;}"
+			+"table,th,td{ width: 40%; background-color: #e3520a; border: 1px solid black; }</style>"+
+			"<body style='background-color: rgb(177, 253, 200);'><center><h1>Last One Month Report</h1><br>");
+			out.print("<table><tr><td>Date and Time</td><td>Transaction</td><td>Amount</td></tr>");
+			for (ClientTransaction cobj : cTrans) {
+				out.print("<tr><td>"+cobj.getDate()+"</td><td>"+cobj.getType()+"</td><td>"+
+						cobj.getAmount()+"</td></tr>");
+			}
+			out.print("</table><br><a href='Main.html'><button>Home</button> </a></center></body></html>");
 		}
 	}
 

@@ -1,12 +1,16 @@
 package com.clientService;
 
+import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import com.client.Client;
+import com.client.ClientTransaction;
 import com.clientDAO.ClientDAO;
+import com.clientDAO.TransactionDAO;
 import com.clientNotFoundException.ClientNotFoundException;
 import com.clientbo.ClientBO;
 
@@ -34,6 +38,10 @@ public class ClientService {
 		ClientBO bo=new ClientBO();
 		Client obj1=bo.deposit(amount, obj);
 		return obj1;
+	}
+	public List<ClientTransaction> oneMonthReport(Client obj){
+		TransactionDAO dao=new TransactionDAO();
+		return dao.monthReport(obj);
 	}
 
 }

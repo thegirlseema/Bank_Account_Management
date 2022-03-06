@@ -18,47 +18,66 @@ public class TransactionDAO {
 		Session session = ClientDB.getSessionFactory().openSession();
 		Transaction t = session.beginTransaction();
 		session.update(object);
+
 		
-//		String user = object.getUserName();
-//		Date cDate=new Date();)
-//		ClientTransaction ct=new ClientTransaction();
-//		//ct.setSno(2);
-//		ct.setUsername(user);
-//		String dt=formatter.format(cDate);
-//		try {
-//			ct.setDate(formatter.parse(dt));
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		ct.setWithdraw(1000);
-//		ct.setDeposit(0);
-//		session.saveOrUpdate(ct);
+		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
+		Date date=new Date();
+		String sdate=formatter1.format(date);
+		ClientTransaction ct=new ClientTransaction();
+		ct.setDate(sdate);
+		String user=object.getUserName();
+		ct.setUsername(user);
+		ct.setType("Withdraw");
+		long with=object.getWithdraw();
+		ct.setAmount(with);
+		session.save(ct);
 		
-//		Query selectQuery = (Query) session.createQuery("select obj from ClientTransaction obj where obj.username =:userName");
-//		selectQuery.setParameter("userName", user);
-//		List resultset = selectQuery.getResultList();
-//		ClientTransaction cobj = null;
-//		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
-//		
-//		System.out.println();
-//		for (Object c : resultset) {
-//			cobj = (ClientTransaction) c;
-//			String s=cobj.getDate().toString();
-//			System.out.println(s);
-//			System.out.println(cobj.getDeposit()+"<-deposit-Date->"
-//			+ formatter.format(cobj.getDate())+ "UName-> " + cobj.getUsername());
-//		}
 		
 		t.commit();
 		session.close();
+		
 
 	}
-
+	
+	public List<ClientTransaction> monthReport(Client obj){
+		String user=obj.getUserName();
+		Session session = ClientDB.getSessionFactory().openSession();
+		Transaction t = session.beginTransaction();
+		Query selectQuery = (Query) session.createQuery("select obj from ClientTransaction obj where obj.username =:userName");
+		selectQuery.setParameter("userName", user);
+		List<ClientTransaction> resultset = selectQuery.getResultList();
+		//ClientTransaction cobj = null;
+		
+		System.out.println();
+		for (ClientTransaction cobj : resultset) {
+					
+				System.out.println(cobj.getAmount()+"<-Amount\n"+
+						cobj.getDate()+"<-Date\n"+cobj.getType()+"<-Type");
+			
+		}
+		
+		t.commit();
+		session.close();
+		return resultset;
+		
+	}
 	public void deposit(Client object) {
 		Session session = ClientDB.getSessionFactory().openSession();
 		Transaction t = session.beginTransaction();
 		session.update(object);
+		
+		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
+		Date date=new Date();
+		String sdate=formatter1.format(date);
+		ClientTransaction ct=new ClientTransaction();
+		ct.setDate(sdate);
+		String user=object.getUserName();
+		ct.setUsername(user);
+		ct.setType("Deposit");
+		long with=object.getDeposit();
+		ct.setAmount(with);
+		session.save(ct);
+		
 		t.commit();
 		session.close();
 	}
