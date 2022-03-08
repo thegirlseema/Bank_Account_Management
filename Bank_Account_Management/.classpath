@@ -17,70 +17,6 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/antlr-2.7.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/byte-buddy-1.8.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/c3p0-0.9.5.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/classmate-1.3.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/geolatte-geom-1.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/hibernate-c3p0-5.3.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/hibernate-commons-annotations-5.0.3.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/hibernate-core-5.3.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/hibernate-envers-5.3.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/hibernate-jpamodelgen-5.3.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/hibernate-osgi-5.3.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/hibernate-proxool-5.3.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/hibernate-spatial-5.3.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/jandex-2.0.3.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/javassist-3.22.0-GA.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/javax.interceptor-api-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/javax.persistence-api-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/jboss-logging-3.3.2.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/jboss-transaction-api_1.2_spec-1.1.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/jts-core-1.14.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/mchange-commons-java-0.2.11.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/org.osgi.compendium-4.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/org.osgi.core-4.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/postgresql-42.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/proxool-0.8.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/hibernatejar/hibernatejar/slf4j-api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/OJDBC_8_JAR_Files/ojdbc8-19.3.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/OJDBC_8_JAR_Files/ons-19.3.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/OJDBC_8_JAR_Files/oraclepki-19.3.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/OJDBC_8_JAR_Files/osdt_cert-19.3.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/OJDBC_8_JAR_Files/osdt_core-19.3.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/OJDBC_8_JAR_Files/simplefan-19.3.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/OJDBC_8_JAR_Files/ucp-19.3.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/aopalliance-repackaged-2.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/hk2-api-2.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/hk2-locator-2.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/hk2-utils-2.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.activation-api-1.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.annotation-api-1.3.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.inject-2.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.json.bind-api-1.0.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.json-1.1.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.json-1.1.6-module.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.json-api-1.1.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.persistence-api-2.2.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.servlet-api-4.0.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.validation-api-2.0.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.ws.rs-api-2.1.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.ws.rs-api-2.1.6-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jakarta.xml.bind-api-2.3.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/javassist-3.25.0-GA.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jersey-client.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jersey-common.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jersey-container-servlet.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jersey-container-servlet-core.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jersey-hk2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jersey-media-jaxb.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jersey-media-json-binding.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jersey-media-sse.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/jersey-server.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/org.osgi.core-6.0.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/osgi-resource-locator-1.0.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hai/Downloads/REST_API_JARS/REST_API_JARS/yasson-1.0.9.jar"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
 			<attribute name="test" value="true"/>
@@ -88,7 +24,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>

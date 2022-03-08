@@ -19,53 +19,39 @@ import javax.servlet.http.HttpSession;
 import com.client.Client;
 import com.clientService.ClientService;
 
-@WebServlet("/Login")
-public class ClientController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	String err="";
-	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String user=request.getParameter("user");
-		String password=request.getParameter("password");
-		HttpSession session=request.getSession();
-		ClientService dao=new ClientService();
-		Client obj = null;
-		try {
-			obj=dao.validate(user,password);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		if(obj!=null && password.equals(obj.getPassword())) {
-			
-			System.out.println("Password-->"+obj.getPassword());
-			session.setAttribute("userName", user);
-			session.setAttribute("password", obj.getPassword());
-			session.setAttribute("object", obj);
-			response.sendRedirect("Main.html");
-			
-		}
-		else {
-			err="Invalid UserName/Password";
-			request.setAttribute("loginerr", err);
-			PrintWriter out = response.getWriter();
-			response.sendRedirect("invaliduser.html");
-		}
-	}
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session=request.getSession();
-		Object obj =session.getAttribute("object");
-		Client cobj1=(Client) obj;
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.print("<html><body style='background-color:  rgb(177, 253, 200);'><center><h1>Account Details</h1><br>");
-		out.print("<h4>Name : "+cobj1.getClientName()+"</h4><br>");
-		out.print("<h4>User Name : "+cobj1.getUserName()+"</h4><br>");
-		out.print("<h4>Account No.   : "+cobj1.getClientAccount()+"</h4><br>");
-		out.print("<h4>Balance : "+cobj1.getAccountBalance()+"</h4><br>");
-		out.print("<h4>Date-of-Joining: "+cobj1.getDoj()+"</h4><br><a href='Main.html'><button>Home</button> </a></center></body>");
-	}
+@Autowired
+private ClientService clientService;
 
+@RequestMapping(value = "/")
+public ModelAndView listClient(ModelAndView model) throws IOException {
+	
+	model.setViewName("login");
+	return model;
+}
+
+@RequestMapping(value = "/showbookbyname", method = RequestMethod.GET)
+public ModelAndView showBookByName(HttpServletRequest request,ModelAndView model) {
+	String  name= request.getParameter("bookname");
+	List<Book> listBookName = bookService.getBookByName("wonder");
+	model.addObject("listname", listBookName);
+	model.setViewName("output");
+	return model;
+}
+@RequestMapping(value = "/showbookbyauthor", method = RequestMethod.GET)
+public ModelAndView showBookByAuthor(HttpServletRequest request,ModelAndView model) {
+	String  author= request.getParameter("bookauthor");
+	List<Book> listBookAuthor = bookService.getBookByAuthor(author);
+	model.addObject("listname", listBookAuthor);
+	model.setViewName("output");
+	return model;
+}
+@RequestMapping(value = "/showbookbycategory", method = RequestMethod.GET)
+public ModelAndView showBookByCategory(HttpServletRequest request,ModelAndView model) {
+	String  category= request.getParameter("bookcategory");
+	List<Book> listBookCat = bookService.getBookByCategory(category);
+	model.addObject("listname", listBookCat);
+	model.setViewName("output");
+	return model;
+}
 
 }
