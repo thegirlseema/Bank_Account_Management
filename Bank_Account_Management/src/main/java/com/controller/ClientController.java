@@ -7,6 +7,7 @@ import java.net.CookieManager;
 import java.net.CookieStore;
 import java.net.HttpCookie;
 import java.net.URL;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,42 +17,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.client.Client;
-import com.clientService.ClientService;
 
-@Autowired
-private ClientService clientService;
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
+public class ClientController {
 
-@RequestMapping(value = "/")
-public ModelAndView listClient(ModelAndView model) throws IOException {
-	
-	model.setViewName("login");
-	return model;
-}
+    private final ClientRepository clientRepository;
 
-@RequestMapping(value = "/showbookbyname", method = RequestMethod.GET)
-public ModelAndView showBookByName(HttpServletRequest request,ModelAndView model) {
-	String  name= request.getParameter("bookname");
-	List<Book> listBookName = bookService.getBookByName("wonder");
-	model.addObject("listname", listBookName);
-	model.setViewName("output");
-	return model;
-}
-@RequestMapping(value = "/showbookbyauthor", method = RequestMethod.GET)
-public ModelAndView showBookByAuthor(HttpServletRequest request,ModelAndView model) {
-	String  author= request.getParameter("bookauthor");
-	List<Book> listBookAuthor = bookService.getBookByAuthor(author);
-	model.addObject("listname", listBookAuthor);
-	model.setViewName("output");
-	return model;
-}
-@RequestMapping(value = "/showbookbycategory", method = RequestMethod.GET)
-public ModelAndView showBookByCategory(HttpServletRequest request,ModelAndView model) {
-	String  category= request.getParameter("bookcategory");
-	List<Book> listBookCat = bookService.getBookByCategory(category);
-	model.addObject("listname", listBookCat);
-	model.setViewName("output");
-	return model;
-}
+    public UserController(UserRepository userRepository) {
+        this.clientRepository = clientRepository;
+    }
 
+    @GetMapping("/client")
+    public List<Client> getUsers() {
+        return (List<Client>) clientRepository.findAll();
+    }
+
+    @PostMapping("/users")
+    void addUser(@RequestBody Client client) {
+        clientRepository.save(client);
+    }
 }
