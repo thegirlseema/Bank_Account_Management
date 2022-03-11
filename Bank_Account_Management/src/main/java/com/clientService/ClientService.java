@@ -2,11 +2,6 @@ package com.clientService;
 
 import java.util.List;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-
 import com.client.Client;
 import com.client.ClientTransaction;
 import com.clientDAO.ClientDAO;
@@ -14,11 +9,8 @@ import com.clientDAO.TransactionDAO;
 import com.clientNotFoundException.ClientNotFoundException;
 import com.clientbo.ClientBO;
 
-@Path("/clientService")
 public class ClientService {
-	@POST
-	@Path("/userLogin")
-	@Produces("text/plain")
+	
 	public Client validate(String user, String password) throws Exception {
 		ClientDAO dao=new ClientDAO();
 		Client c=dao.validate(user, password);

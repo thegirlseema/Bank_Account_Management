@@ -1,47 +1,47 @@
 package com.controller;
 
+import org.springframework.stereotype.Controller;
+
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.CookieHandler;
-import java.net.CookieManager;
-import java.net.CookieStore;
-import java.net.HttpCookie;
-import java.net.URL;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.client.Client;
+import com.clientService.ClientService;
 
-@RestController
-@CrossOrigin(origins = "http://localhost:4200")
+
+
+@Controller
 public class ClientController {
-
-    private final ClientRepository clientRepository;
-
-    public UserController(UserRepository userRepository) {
-        this.clientRepository = clientRepository;
-    }
-
-    @GetMapping("/client")
-    public List<Client> getUsers() {
-        return (List<Client>) clientRepository.findAll();
-    }
-
-    @PostMapping("/users")
-    void addUser(@RequestBody Client client) {
-        clientRepository.save(client);
-    }
+	private static final Logger logger = Logger
+			.getLogger(ClientController.class);
+	public ClientController() {
+		System.out.println("ClientController");
+		}
+	
+	@Autowired
+	private ClientService service;
+	
+	@RequestMapping(value = "/")
+	public ModelAndView homePage(ModelAndView model)  {
+		model.setViewName("login");
+		return model;
+	}
+	@RequestMapping(value = "/Login", method = RequestMethod.POST)
+	public ModelAndView validation(HttpServletRequest request,ModelAndView model) throws Exception {
+		String username = request.getParameter("user");
+		String password = request.getParameter("password");
+		Client client=service.validate(username, password);
+		model.addObject("client", client);
+		model.setViewName("Main");
+		return model;
+	}
+	
 }
