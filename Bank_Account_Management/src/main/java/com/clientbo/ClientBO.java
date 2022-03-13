@@ -6,9 +6,9 @@ import com.clientDAO.TransactionDAO;
 public class ClientBO {
 	public Client withdraw(long amount,Client obj)
 	{
-		long balance=obj.getAccountBalance();
+		long balance=obj.getAccountbalance();
 		balance=balance-amount;
-		obj.setAccountBalance(balance);
+		obj.setAccountbalance(balance);
 		obj.setWithdraw(amount);
 		TransactionDAO dao=new TransactionDAO();
 		dao.withdraw(obj);
@@ -16,9 +16,9 @@ public class ClientBO {
 	}
 	public Client deposit(long amount,Client obj)
 	{
-		long balance=obj.getAccountBalance();
+		long balance=obj.getAccountbalance();
 		balance=balance+amount;
-		obj.setAccountBalance(balance);
+		obj.setAccountbalance(balance);
 		obj.setDeposit(amount);;
 		TransactionDAO dao=new TransactionDAO();
 		dao.deposit(obj);;

@@ -8,15 +8,21 @@ import java.util.List;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.client.Client;
 import com.client.ClientTransaction;
 
+@Repository
 public class TransactionDAO {
+	@Autowired
+	public SessionFactory sessionFactory; 
+	
 	public void withdraw(Client object)  {
-		Session session = ClientDB.getSessionFactory().openSession();
-		Transaction t = session.beginTransaction();
+		/*Session session = sessionFactory.getCurrentSession();
 		session.update(object);
 
 		
@@ -24,7 +30,7 @@ public class TransactionDAO {
 		Date date=new Date();
 		String sdate=formatter1.format(date);
 		ClientTransaction ct=new ClientTransaction();
-		ct.setDate(sdate);
+		ct.setTdate(sdate);
 		String user=object.getUserName();
 		ct.setUsername(user);
 		ct.setType("Withdraw");
@@ -33,16 +39,15 @@ public class TransactionDAO {
 		session.save(ct);
 		
 		
-		t.commit();
-		session.close();
+		session.close();*/
 		
 
 	}
 	
 	public List<ClientTransaction> monthReport(Client obj){
-		String user=obj.getUserName();
-		Session session = ClientDB.getSessionFactory().openSession();
-		Transaction t = session.beginTransaction();
+		return null;
+		/*String user=obj.getUserName();
+		Session session = sessionFactory.getCurrentSession();
 		Query selectQuery = (Query) session.createQuery("select obj from ClientTransaction obj where obj.username =:userName");
 		selectQuery.setParameter("userName", user);
 		List<ClientTransaction> resultset = selectQuery.getResultList();
@@ -55,22 +60,19 @@ public class TransactionDAO {
 						cobj.getDate()+"<-Date\n"+cobj.getType()+"<-Type");
 			
 		}
-		
-		t.commit();
 		session.close();
-		return resultset;
+		return resultset;*/
 		
 	}
 	public void deposit(Client object) {
-		Session session = ClientDB.getSessionFactory().openSession();
-		Transaction t = session.beginTransaction();
+		/*Session session = sessionFactory.getCurrentSession();
 		session.update(object);
 		
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
 		Date date=new Date();
 		String sdate=formatter1.format(date);
 		ClientTransaction ct=new ClientTransaction();
-		ct.setDate(sdate);
+		ct.setTdate(sdate);
 		String user=object.getUserName();
 		ct.setUsername(user);
 		ct.setType("Deposit");
@@ -78,7 +80,6 @@ public class TransactionDAO {
 		ct.setAmount(with);
 		session.save(ct);
 		
-		t.commit();
-		session.close();
+		session.close();*/
 	}
 }

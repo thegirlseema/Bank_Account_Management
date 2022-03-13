@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import com.client.Client;
 import com.client.ClientTransaction;
 import com.clientService.ClientService;
-
+/*
 @WebServlet("/Report")
 public class ReportController extends HttpServlet {
 	
@@ -34,8 +34,8 @@ public class ReportController extends HttpServlet {
 			response.setContentType("text/html");
 			PrintWriter out = response.getWriter();
 			out.print("<html><body style='background-color: #4CAF50;'><center><h1>Outstanding Report</h1><br>");
-			out.print("<br><h2>Current Balance => "+cobj1.getAccountBalance()+"</h2><br><br>");
-			out.print("<h2>Outstanding Balance => "+cobj1.getOutstandingBalance()+"</h2><br><a href='Main.html'><button>Home</button> </a></body></center></html>");
+			out.print("<br><h2>Current Balance => "+cobj1.getAccountbalance()+"</h2><br><br>");
+			out.print("<h2>Outstanding Balance => "+cobj1.getOutstandingbalance()+"</h2><br><a href='Main.html'><button>Home</button> </a></body></center></html>");
 		}
 		else if(str.equals("OneMonthReport")) {
 			ClientService service=new ClientService();
@@ -54,4 +54,4 @@ public class ReportController extends HttpServlet {
 		}
 	}
 
-}
+}*/

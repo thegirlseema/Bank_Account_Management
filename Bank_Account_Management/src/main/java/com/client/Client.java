@@ -1,34 +1,36 @@
 package com.client;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="CLIENTDETAIL")
-public class Client{
+public class Client implements Serializable{
 
 	@Id
-	@Column(name="CLIENTID")
-	private long clientID;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long clientid;
 	
 	@Column(name="CLIENTNAME")
-	private String clientName;
+	private String clientname;
 	
 	@Column(name="USERNAME")
-	private String userName;
+	private String username;
 	
 	@Column(name="PASSWORD")
 	private String password;
 	
 	@Column(name="ACCOUNTBALANCE")
-    private long accountBalance;
+    private long accountbalance;
 	
 	@Column(name="OUTSTANDINGBALANCE")
-    private long outstandingBalance;
+    private long outstandingbalance;
 	
 	@Column(name="DOJ")
 	private String doj;
@@ -39,50 +41,50 @@ public class Client{
 	@Column(name="DEPOSIT")
 	private long deposit;
 	
-	@Column(name = "ACCOUNTNUMBER")
-	private long clientAccount ;
+	@Column(name="ACCOUNTNUMBER")
+	private long clientaccount ;
 	
 	public Client() {
 		
 	}
 
-	public Client(long clientID, String clientName, String userName, String password, long accountBalance,
-			long outstandingBalance, String doj, long withdraw, long deposit, long clientAccount) {
+	public Client(long clientid, String clientname, String username, String password, long accountbalance,
+			long outstandingbalance, String doj, long withdraw, long deposit, long clientaccount) {
 		super();
-		this.clientID = clientID;
-		this.clientName = clientName;
-		this.userName = userName;
+		this.clientid = clientid;
+		this.clientname = clientname;
+		this.username = username;
 		this.password = password;
-		this.accountBalance = accountBalance;
-		this.outstandingBalance = outstandingBalance;
+		this.accountbalance = accountbalance;
+		this.outstandingbalance = outstandingbalance;
 		this.doj = doj;
 		this.withdraw = withdraw;
 		this.deposit = deposit;
-		this.clientAccount = clientAccount;
+		this.clientaccount = clientaccount;
 	}
 
-	public long getClientID() {
-		return clientID;
+	public long getClientid() {
+		return clientid;
 	}
 
-	public void setClientID(long clientID) {
-		this.clientID = clientID;
+	public void setClientid(long clientid) {
+		this.clientid = clientid;
 	}
 
-	public String getClientName() {
-		return clientName;
+	public String getClientname() {
+		return clientname;
 	}
 
-	public void setClientName(String clientName) {
-		this.clientName = clientName;
+	public void setClientname(String clientname) {
+		this.clientname = clientname;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -93,20 +95,20 @@ public class Client{
 		this.password = password;
 	}
 
-	public long getAccountBalance() {
-		return accountBalance;
+	public long getAccountbalance() {
+		return accountbalance;
 	}
 
-	public void setAccountBalance(long accountBalance) {
-		this.accountBalance = accountBalance;
+	public void setAccountbalance(long accountbalance) {
+		this.accountbalance = accountbalance;
 	}
 
-	public long getOutstandingBalance() {
-		return outstandingBalance;
+	public long getOutstandingbalance() {
+		return outstandingbalance;
 	}
 
-	public void setOutstandingBalance(long outstandingBalance) {
-		this.outstandingBalance = outstandingBalance;
+	public void setOutstandingbalance(long outstandingbalance) {
+		this.outstandingbalance = outstandingbalance;
 	}
 
 	public String getDoj() {
@@ -133,14 +135,12 @@ public class Client{
 		this.deposit = deposit;
 	}
 
-	public long getClientAccount() {
-		return clientAccount;
+	public long getClientaccount() {
+		return clientaccount;
 	}
 
-	public void setClientAccount(long clientAccount) {
-		this.clientAccount = clientAccount;
+	public void setClientaccount(long clientaccount) {
+		this.clientaccount = clientaccount;
 	}
-
 	
-	
-}
+	}

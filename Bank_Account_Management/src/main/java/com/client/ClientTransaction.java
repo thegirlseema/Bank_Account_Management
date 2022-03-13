@@ -1,5 +1,7 @@
 package com.client;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,24 +11,32 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TRANSACTIONDET")
-public class ClientTransaction {
+public class ClientTransaction implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "SNO")
 	private long sno;
 
-	@Column(name = "TDATE")
-	private String date;
+	@Column
+	private String tdate;
 
-	@Column(name = "USERNAME")
+	@Column
 	private String username;
 	
-	@Column(name = "TYPE")
+	@Column
 	private String type;
 	
-	@Column(name = "AMOUNT")
+	@Column
 	private long amount;
+	
+	public ClientTransaction(long sno, String tdate, String username, String type, long amount) {
+		super();
+		this.sno = sno;
+		this.tdate = tdate;
+		this.username = username;
+		this.type = type;
+		this.amount = amount;
+	}
 
 	public long getSno() {
 		return sno;
@@ -36,12 +46,12 @@ public class ClientTransaction {
 		this.sno = sno;
 	}
 
-	public String getDate() {
-		return date;
+	public String getTdate() {
+		return tdate;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setTdate(String tdate) {
+		this.tdate = tdate;
 	}
 
 	public String getUsername() {

@@ -28,10 +28,10 @@ public class ClientController {
 	
 	@Autowired
 	private ClientService service;
-	
+	//ClientService service=new ClientService();
 	@RequestMapping(value = "/")
 	public ModelAndView homePage(ModelAndView model)  {
-		model.setViewName("login");
+		model.setViewName("startpage");
 		return model;
 	}
 	@RequestMapping(value = "/Login", method = RequestMethod.POST)
@@ -40,7 +40,7 @@ public class ClientController {
 		String password = request.getParameter("password");
 		Client client=service.validate(username, password);
 		model.addObject("client", client);
-		model.setViewName("Main");
+		model.setViewName("mainpage");
 		return model;
 	}
 	

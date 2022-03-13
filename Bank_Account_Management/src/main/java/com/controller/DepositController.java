@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.client.Client;
 import com.clientService.ClientService;
 
-@WebServlet("/DepositController")
+/*@WebServlet("/DepositController")
 public class DepositController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,4 +26,4 @@ public class DepositController extends HttpServlet {
 		
 	}
 
-}
+}*/

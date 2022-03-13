@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.client.Client;
 import com.clientService.ClientService;
-
+/*
 @WebServlet("/WithdrawController")
 public class WithdrawController extends HttpServlet {
 	
@@ -21,7 +21,7 @@ public class WithdrawController extends HttpServlet {
 		HttpSession session=request.getSession();
 		Object obj =session.getAttribute("object");
 		Client cobj1=(Client) obj;
-		if(amount<cobj1.getAccountBalance())
+		if(amount<cobj1.getAccountbalance())
 		{
 		ClientService service=new ClientService();
 		Client cobj2=service.withdraw(amount, cobj1);
@@ -33,8 +33,8 @@ public class WithdrawController extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			out.print("<center><h1>Withdraw Failed</h1><br><h2>"
 					+ "Withdraw amount is greater than Account Balance</h2>"
-					+ "Account Balance=>"+cobj1.getAccountBalance()+"</center>");
+					+ "Account Balance=>"+cobj1.getAccountbalance()+"</center>");
 		}
 	}
 
-}
+}*/
