@@ -14,19 +14,20 @@ import javax.persistence.Table;
 public class ClientTransaction implements Serializable{
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="SNO")
 	private long sno;
 
-	@Column
+	@Column(name="TDATE")
 	private String tdate;
 
-	@Column
+	@Column(name="USERNAME")
 	private String username;
 	
-	@Column
+	@Column(name="TYPE")
 	private String type;
 	
-	@Column
+	@Column(name="AMOUNT")
 	private long amount;
 	
 	public ClientTransaction(long sno, String tdate, String username, String type, long amount) {
@@ -37,6 +38,11 @@ public class ClientTransaction implements Serializable{
 		this.type = type;
 		this.amount = amount;
 	}
+
+	
+	public ClientTransaction() {
+	}
+
 
 	public long getSno() {
 		return sno;

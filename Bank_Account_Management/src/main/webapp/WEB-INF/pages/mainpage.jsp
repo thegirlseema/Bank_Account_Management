@@ -46,8 +46,8 @@
          
         <h1>Welcome!!</h1>
 		<br>
-        <form action="Login" method="get">
-        	<input type="submit" class="button" name="deatil" value="Account Detail">
+        <form action="detail" method="post" >
+        	<input type="submit" class="button" name="detail" value="Account Detail">
         </form>
         <br>
         <br>
@@ -62,11 +62,17 @@
            <br>
 
            <br>
-        <a href="clientreport.html">
+        <a href="clientreport">
             <button class="button">Transaction History</button>
            </a>
-        
-           
+           <br>
+           <br>
+           <br>
+        	
+        	<a href="Logout">
+            <button class="button">Logout</button>
+           </a>
+           <!-- onclick="alert('Successfully logged Out);" -->
             </div>
         </div>
     </center>
