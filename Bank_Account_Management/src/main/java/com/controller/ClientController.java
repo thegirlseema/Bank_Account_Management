@@ -87,7 +87,8 @@ public class ClientController {
 		}
 		else if(str.equals("OneMonthReport")) {
 			List<ClientTransaction> history=service.oneMonthReport(client);
-			model.setViewName("mainpage");
+			model.addObject("list", history);
+			model.setViewName("monthreport");
 		}
 		return model;
 	}

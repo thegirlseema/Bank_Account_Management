@@ -27,7 +27,7 @@ public class TransactionDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	public void withdraw(Client object)  {
-		/*Session session = sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.update(object);
 
 		
@@ -42,8 +42,7 @@ public class TransactionDAO {
 		long with=object.getWithdraw();
 		ct.setAmount(with);
 		session.save(ct);
-		*/
-
+		
 	}
 	
 	@SuppressWarnings("unchecked")

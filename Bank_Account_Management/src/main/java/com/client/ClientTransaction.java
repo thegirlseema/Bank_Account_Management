@@ -11,11 +11,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TRANSACTIONDET")
-public class ClientTransaction implements Serializable{
+public class ClientTransaction{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="SNO")
 	private long sno;
 
 	@Column(name="TDATE")

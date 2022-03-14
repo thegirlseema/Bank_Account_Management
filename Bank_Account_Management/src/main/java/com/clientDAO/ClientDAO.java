@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.client.Client;
+import com.client.ClientTransaction;
 
 @Repository
 public class ClientDAO 
@@ -38,26 +39,5 @@ public class ClientDAO
 		}
 		return cobj;
 	}
-	
-	/*public Client find(String user){
-		Client c=new Client();
-		c=null;
-		SessionFactory sessionFactory=ClientDB.getSessionFactory();
-		Session session =sessionFactory.openSession();
-		Transaction t = session.beginTransaction();
-		
-		Query selectQuery = (Query) session.createQuery("select obj from Client obj where obj.userName =:userName");
-		selectQuery.setParameter("userName", user);
-		 List resultset  =  selectQuery.getResultList();
-		 Client c1=new Client();
-		for(Object u: resultset)
-        {
-        	 c=(Client) u;
-        	 System.out.println(c.getClientID()+c.getClientAccount());
-       }
-		t.commit();
- 		session.close();
-		return c;
-	}*/
 	
 }

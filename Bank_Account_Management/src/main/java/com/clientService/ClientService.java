@@ -20,6 +20,9 @@ public class ClientService {
 	@Autowired
 	private ClientDAO dao;
 	
+	@Autowired
+	private TransactionDAO tdao;
+	
 	@Transactional
 	public Client validate(String user, String password) throws Exception {
 		System.out.println("Service Class is called");
@@ -49,8 +52,7 @@ public class ClientService {
 	
 	@Transactional
 	public List<ClientTransaction> oneMonthReport(Client obj){
-		TransactionDAO dao=new TransactionDAO();
-		return dao.monthReport(obj);
+		return tdao.monthReport(obj);
 	}
 
 }

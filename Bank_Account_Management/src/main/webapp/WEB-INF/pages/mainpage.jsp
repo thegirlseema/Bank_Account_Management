@@ -70,7 +70,7 @@
            <br>
         	
         	<a href="Logout">
-            <button class="button">Logout</button>
+            <button class="button" onclick="alert('Successflly logged Out);">Logout</button>
            </a>
            <!-- onclick="alert('Successfully logged Out);" -->
             </div>
