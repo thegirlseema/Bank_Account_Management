@@ -1,5 +1,5 @@
 package com.controller;
-
+/*
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import com.client.Client;
 import com.client.ClientTransaction;
 import com.clientService.ClientService;
-/*
+
 @WebServlet("/Report")
 public class ReportController extends HttpServlet {
 	

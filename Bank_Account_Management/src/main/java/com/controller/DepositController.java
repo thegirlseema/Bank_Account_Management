@@ -1,5 +1,5 @@
 package com.controller;
-
+/*
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.client.Client;
 import com.clientService.ClientService;
 
-/*@WebServlet("/DepositController")
+@WebServlet("/DepositController")
 public class DepositController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

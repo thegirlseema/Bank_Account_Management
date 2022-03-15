@@ -1,6 +1,6 @@
 package com.controller;
 
-
+/*
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,7 +31,7 @@ public class RegisterController {
 	}
 	
 	// Process form input data
-	/*@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView processRegistrationForm(ModelAndView modelAndView,Client client, HttpServletRequest request) {
 				
 		// Lookup user in database by e-mail
@@ -47,8 +47,8 @@ public class RegisterController {
 		cl.save(clientExists);
 		
 		return modelAndView;
-	}*/
+	}
 	
 	
 	
-}
+}*/

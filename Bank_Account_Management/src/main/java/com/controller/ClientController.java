@@ -1,5 +1,5 @@
 package com.controller;
-
+/*
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
@@ -99,3 +99,4 @@ public class ClientController {
 	}
 	
 }
+*/
