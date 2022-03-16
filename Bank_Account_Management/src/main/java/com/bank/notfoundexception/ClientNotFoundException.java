@@ -1,4 +1,4 @@
-package com.clientNotFoundException;
+package com.bank.notfoundexception;
 
 import java.io.IOException;
 

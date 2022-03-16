@@ -1,4 +1,4 @@
-package com.client;
+package com.bank.client;
 
 import java.io.Serializable;
 

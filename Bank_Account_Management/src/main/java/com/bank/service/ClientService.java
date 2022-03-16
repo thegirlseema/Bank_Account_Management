@@ -1,4 +1,4 @@
-package com.clientService;
+package com.bank.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,12 +8,12 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.client.Client;
-import com.client.ClientTransaction;
-import com.clientDAO.ClientDAO;
-import com.clientDAO.TransactionDAO;
-import com.clientNotFoundException.ClientNotFoundException;
-import com.clientbo.ClientBO;
+import com.bank.client.Client;
+import com.bank.client.ClientTransaction;
+import com.bank.clientbo.ClientBO;
+import com.bank.clientdao.ClientDAO;
+import com.bank.clientdao.TransactionDAO;
+import com.bank.notfoundexception.ClientNotFoundException;
 
 
 @Service
@@ -35,7 +35,7 @@ public class ClientService {
 	@Transactional
 	public Client validate(String user, String password) throws Exception {
 		System.out.println("Service Class is called");
-		Client c=dao.findByName(user);
+		Client c=dao.findByUsername(user);
 		if(c==null) {
 			throw new ClientNotFoundException("Invalid Username");
 		}
@@ -45,7 +45,7 @@ public class ClientService {
 	@Transactional
 	public List<ClientTransaction> oneMonthReport(Client obj){
 		String name=obj.getUsername();
-		return tdao.findByName(name);
+		return tdao.findByUsername(name);
 	}
 
 	@Transactional
@@ -64,6 +64,19 @@ public class ClientService {
 		Client obj1=bo.deposit(amount, obj);
 		dao.save(obj1);
 		return obj1;
+	}
+	@Transactional
+	public boolean registor(Client obj)
+	{
+		
+		String uname=obj.getUsername();
+		Client c=dao.findByUsername(uname);
+		if(c==null)
+		{
+			dao.save(obj);
+			return true;
+		}
+		return false;
 	}
 	
 	

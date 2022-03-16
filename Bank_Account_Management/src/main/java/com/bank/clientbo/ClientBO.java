@@ -1,8 +1,11 @@
-package com.clientbo;
+package com.bank.clientbo;
 
-import com.client.Client;
-import com.clientDAO.TransactionDAO;
+import org.springframework.stereotype.Component;
 
+import com.bank.client.Client;
+import com.bank.clientdao.TransactionDAO;
+
+@Component
 public class ClientBO {
 	public Client withdraw(long amount,Client obj)
 	{

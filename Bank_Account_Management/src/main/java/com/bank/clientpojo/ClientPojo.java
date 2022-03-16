@@ -1,4 +1,4 @@
-package com.clientpojo;
+package com.bank.clientpojo;
 
 public class ClientPojo {
 	private long clientID;
