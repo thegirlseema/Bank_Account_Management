@@ -24,3 +24,17 @@ public class ClientBO {
 		return obj;
 	}
 }
+/*
+{
+"clientid": 10,
+"clientname": "Robert",
+"username": "rob123",
+"password": "1234",
+"accountbalance": 6300,
+"outstandingbalance": 1000,
+"doj": "12/07/2021",
+"withdraw": 100,
+"deposit": 1000,
+"clientaccount": 501234
+}
+*/

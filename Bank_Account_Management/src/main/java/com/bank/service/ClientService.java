@@ -14,8 +14,6 @@ import com.bank.clientbo.ClientBO;
 import com.bank.clientdao.ClientDAO;
 import com.bank.clientdao.TransactionDAO;
 import com.bank.notfoundexception.ClientNotFoundException;
-
-
 @Service
 public class ClientService {
 	@Autowired
@@ -30,6 +28,11 @@ public class ClientService {
 		 dao.findAll().forEach(client -> clientList.add(client));
 		 return clientList;
 	}
+	@Transactional
+	public Client findByUser(String username){
+		Client clientList=dao.findByUsername(username);
+		 return clientList;
+	}
 	
 	
 	@Transactional
@@ -39,13 +42,22 @@ public class ClientService {
 		if(c==null) {
 			throw new ClientNotFoundException("Invalid Username");
 		}
+		/*try {
+		if(c==null) {
+			throw new ClientNotFoundException("Invalid Username");
+		}
+		}
+		catch(Exception e)
+		{
+			return c;
+		}*/
 		return c;
 	}
 	
 	@Transactional
 	public List<ClientTransaction> oneMonthReport(Client obj){
 		String name=obj.getUsername();
-		return tdao.findByUsername(name);
+		return  tdao.findByUsername(name);
 	}
 
 	@Transactional
@@ -64,19 +76,6 @@ public class ClientService {
 		Client obj1=bo.deposit(amount, obj);
 		dao.save(obj1);
 		return obj1;
-	}
-	@Transactional
-	public boolean registor(Client obj)
-	{
-		
-		String uname=obj.getUsername();
-		Client c=dao.findByUsername(uname);
-		if(c==null)
-		{
-			dao.save(obj);
-			return true;
-		}
-		return false;
 	}
 	
 	
