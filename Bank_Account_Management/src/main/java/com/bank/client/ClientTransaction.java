@@ -1,7 +1,5 @@
 package com.bank.client;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TRANSACTIONDET")
+@Table(name = "TRANSACTIONDETAIL")
 public class ClientTransaction{
 
 	@Id
@@ -31,10 +29,12 @@ public class ClientTransaction{
 	
 	@Column(name="CLIENTID")
 	private long clientid;
-
-	public ClientTransaction(long tid, String tdate, String username, String type, long amount, long clientid) {
+	
+	public ClientTransaction() {
+		
+	}
+	public ClientTransaction(String tdate, String username, String type, long amount, long clientid) {
 		super();
-		this.tid = tid;
 		this.tdate = tdate;
 		this.username = username;
 		this.type = type;

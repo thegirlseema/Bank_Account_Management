@@ -26,7 +26,7 @@
   	</tr>
   	<tr>
   		<td>Client Name</td>
-  		<td>${client.getClientname()}</td>
+  		<td>${client.getFirstname()}</td>
   	</tr>
   	<tr>
   		<td>User Name</td>

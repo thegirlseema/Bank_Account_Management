@@ -11,6 +11,6 @@ import com.bank.client.ClientTransaction;
 public interface TransactionDAO extends CrudRepository<ClientTransaction, Long>
 {
 	List<ClientTransaction> findByUsername(String username);
-
+	List<ClientTransaction> findByClientid(long clientid);
 	
 }

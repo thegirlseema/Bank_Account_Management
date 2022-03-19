@@ -43,7 +43,7 @@
             <h1>Choose your option</h1>
     
             <br>
-            <form action="report" method="POST">
+            <form action="Report" method="POST">
             <input type="submit" class="button" value="Last-Transaction" name="report">
             </form>
     
@@ -52,14 +52,14 @@
                <br>
     
                <br>
-            <form action="report" method="POST">
+            <form action="Report" method="POST">
             <input type="submit" class="button" value="Outstanding-Balance" name="report">
             </form>
 			<br>
 				<br>
 				 <br>
-            <form action="report" method="POST">
-            <input type="submit" class="button" value="OneMonthReport" name="report">
+            <form action="Report" method="POST">
+            <input type="submit" class="button" value="TotalTransaction" name="report">
             </form>
                 </div>
             </div>

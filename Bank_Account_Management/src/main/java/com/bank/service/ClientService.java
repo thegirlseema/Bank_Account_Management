@@ -1,6 +1,8 @@
 package com.bank.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -56,16 +58,22 @@ public class ClientService {
 	
 	@Transactional
 	public List<ClientTransaction> oneMonthReport(Client obj){
-		String name=obj.getUsername();
-		return  tdao.findByUsername(name);
+		long id=obj.getClientid();
+		return tdao.findByClientid(id);
 	}
-
+	
 	@Transactional
 	public Client withdraw(long amount,Client obj)
 	{
 		ClientBO bo=new ClientBO();
 		Client obj1=bo.withdraw(amount, obj);
 		dao.save(obj1);
+		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
+		Date date=new Date();
+		String sdate=formatter1.format(date);
+		//String tdate, String username, String type, long amount, long clientid
+		ClientTransaction transobj=new ClientTransaction(sdate,obj.getUsername(),"Withdraw",amount,obj.getClientid());
+		tdao.save(transobj);
 		return obj1;
 	}
 	
@@ -75,6 +83,12 @@ public class ClientService {
 		ClientBO bo=new ClientBO();
 		Client obj1=bo.deposit(amount, obj);
 		dao.save(obj1);
+		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
+		Date date=new Date();
+		String sdate=formatter1.format(date);
+		//String tdate, String username, String type, long amount, long clientid
+		ClientTransaction transobj=new ClientTransaction(sdate,obj.getUsername(),"Deposit",amount,obj.getClientid());
+		tdao.save(transobj);
 		return obj1;
 	}
 	

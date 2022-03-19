@@ -52,10 +52,9 @@
         <br>
         <br>
         <br>
-        <a href="transaction.html">
-            <button class="button">Money Transfer</button>
-           </a>
-           
+        <form action="transaction" method="post" >
+        	<input type="submit" class="button" name="detail" value="Money Transfer">
+        </form>
 
            <br>
            <br>

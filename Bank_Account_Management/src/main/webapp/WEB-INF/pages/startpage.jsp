@@ -14,10 +14,11 @@
 <div class="topnav" id="myTopnav">
   
   
-  <a href="signup.html" style="float: right">Sign Up</a>
   
+  <form action="register" method="get">
+  <button type="submit" style="float: right">Admin Register</button>
+  </form>
    
-  </a>
 </div>
 <br><br>
   <center>
@@ -43,6 +44,7 @@
     </table>
     <hr class="colorgraph">
     <br>
+    <p style="color:red">${error}</p>
     <input type="submit" name="submit" value="Submit" style="height: 45px; width: 200px; font-size: 25px; color: white; background-color: #4CAF50">
   </form>
   </center>
