@@ -51,13 +51,14 @@ public class ClientService {
 		}
 		catch(Exception e)
 		{
+		System.out.println(e);
 			return c;
 		}*/
 		return c;
 	}
 	
 	@Transactional
-	public List<ClientTransaction> oneMonthReport(Client obj){
+	public List<ClientTransaction> totalTransaction(Client obj){
 		long id=obj.getClientid();
 		return tdao.findByClientid(id);
 	}

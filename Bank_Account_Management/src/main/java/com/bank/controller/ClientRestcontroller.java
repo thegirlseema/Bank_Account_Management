@@ -33,14 +33,14 @@ public class ClientRestcontroller {
     }
 	
 	@PostMapping(path="/login", produces = "application/json")
-    public String validation(@RequestParam String username,@RequestParam String password) throws Exception {
+    public Client validation(@RequestParam String username,@RequestParam String password) throws Exception {
 		System.out.println(username+" "+password);
 		Client client=service.validate(username, password);
 		if(client!=null && client.getPassword().equals(password) )
 		{
-			return client.toString();
+			return client;
 		}
-        return "Invalid Username/Password";
+        return client;
     }
 	
 	@PostMapping(path="/deposit",  consumes = "application/json",produces = "application/json")
@@ -62,11 +62,11 @@ public class ClientRestcontroller {
        return service.allClient();
     }
 	
-	/*@PostMapping(path="/report",  consumes = "application/json",produces = "application/json")
+	@PostMapping(path="/report",  consumes = "application/json",produces = "application/json")
     public List<ClientTransaction> allTransaction(@RequestBody Client client) throws Exception {
-		List<ClientTransaction> list=service.oneMonthReport(client);
+		List<ClientTransaction> list=service.totalTransaction(client);
         return list;
-    }*/
+    }
 	
 	@RequestMapping(value = "/s",method = RequestMethod.GET)
 	public ModelAndView homePage(ModelAndView model)  {
@@ -150,14 +150,14 @@ public class ClientRestcontroller {
 		String str=request.getParameter("report");
 		if(str.equals("Last-Transaction")) {
 			model.addObject("client", client);
-			model.setViewName("mainpage");
+			model.setViewName("lasttransaction");
 		}
 		else if(str.equals("Outstanding-Balance")) {
 			model.addObject("client", client);
-			model.setViewName("mainpage");
+			model.setViewName("balancereport");
 		}
 		else if(str.equals("TotalTransaction")) {
-			List<ClientTransaction> history=service.oneMonthReport(client);
+			List<ClientTransaction> history=service.totalTransaction(client);
 			model.addObject("list", history);
 			model.setViewName("monthreport");
 		}
