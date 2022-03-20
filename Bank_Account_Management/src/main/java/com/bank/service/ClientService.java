@@ -35,16 +35,27 @@ public class ClientService {
 		Client clientList=dao.findByUsername(username);
 		 return clientList;
 	}
+	@Transactional
+	public boolean newClient(Client client){
+		String username=client.getUsername();
+		long mobile=client.getMobileno();
+		if(dao.findByUsername(username)==null && dao.findByMobileno(mobile)==null && dao.findByClientaccount(client.getClientaccount())==null)
+		{
+			dao.save(client);
+			System.out.println("New Client Added Successfully");
+			return true;
+		}
+		System.out.println("Username/Mobile Number/Accountnumber is already exist");
+		return false;
+	}
 	
 	
 	@Transactional
 	public Client validate(String user, String password) throws Exception {
 		System.out.println("Service Class is called");
 		Client c=dao.findByUsername(user);
-		if(c==null) {
-			throw new ClientNotFoundException("Invalid Username");
-		}
-		/*try {
+		
+		try {
 		if(c==null) {
 			throw new ClientNotFoundException("Invalid Username");
 		}
@@ -53,7 +64,7 @@ public class ClientService {
 		{
 		System.out.println(e);
 			return c;
-		}*/
+		}
 		return c;
 	}
 	
@@ -64,9 +75,10 @@ public class ClientService {
 	}
 	
 	@Transactional
-	public Client withdraw(long amount,Client obj)
+	public Client withdraw(long amount,long id)
 	{
 		ClientBO bo=new ClientBO();
+		Client obj=dao.findByClientid(id);
 		Client obj1=bo.withdraw(amount, obj);
 		dao.save(obj1);
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
@@ -79,9 +91,10 @@ public class ClientService {
 	}
 	
 	@Transactional
-	public Client deposit(long amount,Client obj)
+	public Client deposit(long amount,long id)
 	{
 		ClientBO bo=new ClientBO();
+		Client obj=dao.findByClientid(id);
 		Client obj1=bo.deposit(amount, obj);
 		dao.save(obj1);
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 

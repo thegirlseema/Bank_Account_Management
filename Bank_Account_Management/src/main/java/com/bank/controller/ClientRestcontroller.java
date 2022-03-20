@@ -44,28 +44,26 @@ public class ClientRestcontroller {
     }
 	
 	@PostMapping(path="/deposit",  consumes = "application/json",produces = "application/json")
-    public  Client deposit(@RequestBody Client client,@RequestParam long amount) throws Exception {
-		Client obj=service.deposit(amount, client);
+    public  Client deposit(@RequestBody long clientid,@RequestParam long amount) throws Exception {
+		Client obj=service.deposit(amount, clientid);
 		return obj;
     }
 	
 	@PostMapping(path="/withdraw",  consumes = "application/json",produces = "application/json")
-    public  Client withdraw(@RequestBody Client client,@RequestParam long amount) throws Exception {
-		Client obj=service.withdraw(amount, client);
+    public  Client withdraw(@RequestBody long clientid,@RequestParam long amount) throws Exception {
+		Client obj=service.withdraw(amount, clientid);
 		return obj;
-    }
-	
-
-	@GetMapping(path="/allclient", produces = "application/json")
-    public List<Client> allClient() 
-    {
-       return service.allClient();
     }
 	
 	@PostMapping(path="/report",  consumes = "application/json",produces = "application/json")
     public List<ClientTransaction> allTransaction(@RequestBody Client client) throws Exception {
 		List<ClientTransaction> list=service.totalTransaction(client);
         return list;
+    }
+	@PostMapping(path="/registor",  consumes = "application/json")
+    public boolean newClient(@RequestBody Client client) throws Exception {
+		boolean status=service.newClient(client);
+        return status;
     }
 	
 	@RequestMapping(value = "/s",method = RequestMethod.GET)
@@ -107,7 +105,8 @@ public class ClientRestcontroller {
 		HttpSession session=request.getSession();
 		Object obj =session.getAttribute("clientobj");
 		Client client=(Client) obj;
-		service.deposit(depositAmount, client);
+		long clientid=client.getClientid();
+		service.deposit(depositAmount, clientid);
 		model.addObject("client", client);
 		model.setViewName("mainpage");
 		return model;
@@ -118,7 +117,8 @@ public class ClientRestcontroller {
 		HttpSession session=request.getSession();
 		Object obj =session.getAttribute("clientobj");
 		Client client=(Client) obj;
-		service.withdraw(withdrawAmount, client);
+		long clientid=client.getClientid();
+		service.withdraw(withdrawAmount, clientid);
 		model.addObject("client", client);
 		model.setViewName("mainpage");
 		return model;

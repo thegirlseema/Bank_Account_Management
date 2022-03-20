@@ -9,6 +9,7 @@ import com.bank.client.Client;
 public interface ClientDAO extends CrudRepository<Client, Long>
 {
 	public Client findByUsername(String username);
-
-	
+	public Client findByClientid(long clientid);
+	public Client findByMobileno(long mobileno);
+	public Client findByClientaccount(long clientaccount);
 }
