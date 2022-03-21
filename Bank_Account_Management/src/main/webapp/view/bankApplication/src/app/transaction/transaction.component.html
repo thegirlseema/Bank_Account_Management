@@ -1,0 +1,20 @@
+<div>
+  <div>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Transaction Date</th>
+          <th scope="col">Deposit/Withdraw</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trans of transactions">
+          <td>{{ trans.tdate }}</td>
+          <td>{{ trans.transtype }}</td>
+          <td>{{ trans.amount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,13 +47,13 @@ public class ClientRestcontroller {
     }
 	
 	@PostMapping(path="/deposit",  consumes = "application/json",produces = "application/json")
-    public  Client deposit(@RequestBody long clientid,@RequestParam long amount) throws Exception {
+    public  Client deposit(@RequestParam long clientid,@RequestParam long amount) throws Exception {
 		Client obj=service.deposit(amount, clientid);
 		return obj;
     }
 	
 	@PostMapping(path="/withdraw",  consumes = "application/json",produces = "application/json")
-    public  Client withdraw(@RequestBody long clientid,@RequestParam long amount) throws Exception {
+    public  Client withdraw(@RequestParam long clientid,@RequestParam long amount) throws Exception {
 		Client obj=service.withdraw(amount, clientid);
 		return obj;
     }

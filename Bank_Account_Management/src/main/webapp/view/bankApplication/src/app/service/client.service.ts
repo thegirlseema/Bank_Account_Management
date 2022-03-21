@@ -10,10 +10,12 @@ import { Login } from '../model/login';
 export class ClientService {
 	private clientUrl: string;
 	private newClient: string;
+	private transReport: string;
     constructor(private http: HttpClient)
     {
 		this.clientUrl = 'http://localhost:8090/Banking_System/login';
 		this.newClient='http://localhost:8090/Banking_System/registor';
+		this.transReport='http://localhost:8090/Banking_System/report'
     }
     public login(val : Login): Observable<Client> {
 	let params = new HttpParams()
@@ -23,5 +25,8 @@ export class ClientService {
    }
    public save(client: Client) {
     return this.http.post<Client>(this.newClient, client);
+  }
+   public getTransreport(client: Client) :  Observable<Transaction[]>{
+    return this.http.post<Transaction[]>(this.transReport, client);
   }
 }
