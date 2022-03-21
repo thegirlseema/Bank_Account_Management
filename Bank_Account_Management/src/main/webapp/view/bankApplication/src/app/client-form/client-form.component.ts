@@ -11,18 +11,18 @@ import { Client } from '../model/client';
 export class ClientFormComponent {
 
   client: Client;
-  public formData: any = {};
 
-  constructor(private route: ActivatedRoute, private router: Router, private clientService: ClientService) {
+  constructor(private route: ActivatedRoute, private router: Router, 
+    private clientService: ClientService) {
     this.client=new Client();
 
   }
 
   onSubmit() {
-    this.clientService.save(this.client).subscribe(result => this.gotoUserList());
+    this.clientService.save(this.client).subscribe(data => {this.gotoLogInPage()});
   }
   
-  gotoUserList() {
+  gotoLogInPage() {
     this.router.navigate(['/login']);
   }
 }

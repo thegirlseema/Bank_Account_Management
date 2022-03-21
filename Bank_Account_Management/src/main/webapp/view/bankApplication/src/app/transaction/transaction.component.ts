@@ -21,8 +21,8 @@ export class TransactionComponent {
   }
   
   ngOnInit() {
-    this.client=this.clientlogincom.getClient();
-    this.getTransaction();
+    /** this.client=this.clientlogincom.getClient();
+    this.getTransaction(); */
     
     }
     getTransaction() {

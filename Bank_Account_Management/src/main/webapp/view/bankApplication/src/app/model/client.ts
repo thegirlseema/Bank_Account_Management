@@ -1,17 +1,17 @@
 export class Client {
-    clientid: number | undefined;
+    clientid: number=0;
     firstname: string='';
     lastname: string='';
     password: string='';
-    accountbalance: number | undefined;
-    outstandingbalance: number | undefined;
+    accountbalance: number=0;
+    outstandingbalance: number=0;
     doj: string='';
-    withdraw: number | undefined;
-    deposit: number | undefined;
+    withdraw: number=0;
+    deposit: number=0;
     username: string='';
-    clientaccount: number | undefined;
+    clientaccount: number=0;
     email:string='';
-    mobileno:number | undefined;
+    mobileno:number=0;
     clientaddress: string=''
 
     
