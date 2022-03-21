@@ -13,11 +13,11 @@ import { Transaction } from '../model/transaction';
 })
 export class TransactionComponent {
 
-   private client: Client | undefined;
+   private client: Client;
    private transactions: Transaction[]=[];
 
   constructor(private clientlogincom: ClientLoginComponent,private clientService:ClientService) {
-
+      this.client=new Client();
   }
   
   ngOnInit() {

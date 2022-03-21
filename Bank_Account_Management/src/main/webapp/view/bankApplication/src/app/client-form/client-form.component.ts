@@ -11,9 +11,11 @@ import { Client } from '../model/client';
 export class ClientFormComponent {
 
   client: Client;
+  public formData: any = {};
 
   constructor(private route: ActivatedRoute, private router: Router, private clientService: ClientService) {
-    this.client = new Client();
+    this.client=new Client();
+
   }
 
   onSubmit() {
