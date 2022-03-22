@@ -16,13 +16,14 @@
           required #password="ngModel">
         <div [hidden]="!password.pristine" class="alert alert-danger">Password is required</div>
       </div>
-
-
       <button type="submit" [disabled]="!clientLogin.form.valid" class="btn btn-info">Submit</button>
     </form>
     <div>
     <a routerLink="/registor"> Register New User </a>
   </div>
+  </div>
+  <div>
+    <a routerLink="/registor"> Register New User </a>
   </div>
 </div>
 

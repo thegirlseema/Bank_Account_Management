@@ -11,9 +11,7 @@ import { HomeComponent } from '../home/home.component';
   templateUrl: './client-login.component.html',
   styleUrls: ['./client-login.component.css']
 })
-export class ClientLoginComponent {
-  
-
+export class ClientLoginComponent{
   login: Login;
   client :Client | undefined;
  

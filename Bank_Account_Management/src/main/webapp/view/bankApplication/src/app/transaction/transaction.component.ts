@@ -21,9 +21,15 @@ export class TransactionComponent {
       this.client=new Client();
   }
   
+<<<<<<< HEAD
     ngOnInit() {
       this.client.clientid=12;
     this.getTransaction();
+=======
+  ngOnInit() {
+    /** this.client=this.clientlogincom.getClient();
+    this.getTransaction(); */
+>>>>>>> 24bac3e84be72aff1c9339982bb811c49bf37f41
     
     }
     home(){
