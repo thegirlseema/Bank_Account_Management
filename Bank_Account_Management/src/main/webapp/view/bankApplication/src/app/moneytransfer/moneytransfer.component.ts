@@ -28,6 +28,6 @@ export class MoneyTransaction{
   }   
   onWithdraw() {
     this.clientService.moneywithdraw(this.client,this.amount).subscribe(result => this.gotoHomePage());
-  }*/
-    
+  }
+    */
   }
