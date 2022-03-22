@@ -6,19 +6,33 @@ import { Client } from '../model/client';
 import { ClientLoginComponent } from '../client-login/client-login.component';
 
 @Component({
-  selector: 'app-client-form',
+  selector: 'app-home-form',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
 
-   client: Client | undefined;
-
-  constructor(private clientlogincom: ClientLoginComponent) {
-
+  client: Client | undefined;
+  public formData: any = {};
+  private clientlogincom!: ClientLoginComponent;
+  constructor(private route: ActivatedRoute,private router: Router) {
   }
-
+  
   ngOnInit() {
-    this.client=this.clientlogincom.getClient();
+      
+    }
+    
+    registerPage(){
+      this.router.navigate(['/registor']);
+    }
+    totalTransaction(){
+      this.router.navigate(['/report']);
+    }
+    logout(){
+      this.router.navigate(['/login']);
+    }
+    moneyTranfer(){
+      this.router.navigate(['/moneytransfer']);
     }
   }
+  

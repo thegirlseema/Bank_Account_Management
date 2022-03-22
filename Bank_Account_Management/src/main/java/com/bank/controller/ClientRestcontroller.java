@@ -60,6 +60,7 @@ public class ClientRestcontroller {
 	
 	@PostMapping(path="/report",  consumes = "application/json",produces = "application/json")
     public List<ClientTransaction> allTransaction(@RequestBody Client client) throws Exception {
+		
 		List<ClientTransaction> list=service.totalTransaction(client);
         return list;
     }

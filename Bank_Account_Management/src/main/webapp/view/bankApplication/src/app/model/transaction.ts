@@ -1,8 +1,8 @@
 export class Transaction {
-    tid :number| undefined;
-	tdate :string| undefined;
+    tid :number=0;
+	tdate :string='';
 	username :string='';
-	transtype:string='';
-	amount:number| undefined;
-	clientid : number| undefined;
+	type:string='';
+	amount:number=0;
+	clientid : number=0;
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,14 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { ClientService } from './service/client.service';
+import { MoneyTransaction } from './moneytransfer/moneytransfer.component';
 @NgModule({
   declarations: [
     AppComponent,
     ClientLoginComponent,
-    ClientFormComponent
+    ClientFormComponent,
+    MoneyTransaction
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
