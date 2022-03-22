@@ -1,3 +1,21 @@
+<div>
+      <h3>Deposit</h3>
+      <label>Enter the amount to deposit</label>
+      <div>
+            <input type="number"  name="amount" required [(ngModel)]="damount"/>
+      </div>
+      <button (click)="onDeposit()" >Submit</button>
+      <br>
+      <h3>Withdraw</h3>
+      <label>Enter the amount to withdraw</label>
+      <div>
+            <input type="number"  name="amount" required  [(ngModel)]="wamount"/>
+      </div>
+      <button (click)="onWithdraw()" >Submit</button>
+      <a routerLink="/home">go to Home Page</a>
+</div>
+
+
 <!--div >
     <form (ngSubmit)="onDeposit()" #depositForm="ngForm">
     <input type="number" [(ngModel)]="amount" name="amount" placeholder="Enter your Amount"

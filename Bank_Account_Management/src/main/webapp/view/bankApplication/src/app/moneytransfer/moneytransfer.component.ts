@@ -12,14 +12,15 @@ import { Transaction } from '../model/transaction';
   styleUrls: ['./moneytransfer.component.css']
 })
 export class MoneyTransaction{
-   /* amount: number=0;
-
+  
+   damount:number=0;
+   wamount:number=0;
     private client:Client;
      constructor(private route: ActivatedRoute, private router: Router, private clientService: ClientService) {
 	this.client=new Client();
   }
     onDeposit() {
-    this.clientService.moneydeposit(this.client,this.amount).subscribe(result => {
+    this.clientService.moneydeposit(this.client,this.damount).subscribe(result => {
         return this.gotoHomePage();
     });
   }
@@ -27,7 +28,7 @@ export class MoneyTransaction{
 	this.router.navigate(['/home']);
   }   
   onWithdraw() {
-    this.clientService.moneywithdraw(this.client,this.amount).subscribe(result => this.gotoHomePage());
+    this.clientService.moneywithdraw(this.client,this.wamount).subscribe(result => this.gotoHomePage());
   }
-    */
+    
   }

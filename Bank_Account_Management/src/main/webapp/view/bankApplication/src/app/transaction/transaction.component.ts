@@ -1,3 +1,4 @@
+import { NgModule } from '@angular/core';
 import { Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'
 import { ActivatedRoute, Router } from '@angular/router';
@@ -36,7 +37,7 @@ export class TransactionComponent {
     }
     getTransaction() {
         this.clientService.getTransreport(this.client).subscribe(data => {
-      this.transactions = data,console.log(this.transactions);
+      this.transactions = data;
     });
     }
 

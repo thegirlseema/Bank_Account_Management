@@ -20,13 +20,9 @@ export class ClientFormComponent {
 
   onSubmit() {
 
-    this.clientService.save(this.client).subscribe(result => this.gotoLoginPage());
+    this.clientService.save(this.client).subscribe(result => this.gotoLogInPage());
   }
   
-  gotoLoginPage() {
-
-    this.clientService.save(this.client).subscribe(data => {this.gotoLogInPage()});
-  }
   
   gotoLogInPage() {
     this.router.navigate(['/login']);

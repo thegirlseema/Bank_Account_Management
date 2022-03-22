@@ -10,12 +10,14 @@ import { ClientLoginComponent } from './client-login/client-login.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { ClientService } from './service/client.service';
 import { MoneyTransaction } from './moneytransfer/moneytransfer.component';
+import { TransactionComponent } from './transaction/transaction.component';
 @NgModule({
   declarations: [
     AppComponent,
     ClientLoginComponent,
     ClientFormComponent,
-    MoneyTransaction
+    MoneyTransaction,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,

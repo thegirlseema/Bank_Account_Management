@@ -40,7 +40,7 @@ export class ClientService {
 	let params = new HttpParams()
       .set('amount', amount)
       .set('clientid', 12)
-    return this.http.post<Client>(this.deposit,params,{ headers: this.httpHeaders })
+    return this.http.post<Client>(this.deposit,params,)//{ headers: this.httpHeaders })
   }
   public moneywithdraw(client: Client,amount : number) {
 	let params = new HttpParams()

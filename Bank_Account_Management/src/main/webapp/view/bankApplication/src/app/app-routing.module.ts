@@ -7,6 +7,7 @@ import { MoneyTransaction } from './moneytransfer/moneytransfer.component';
 import { TransactionComponent } from './transaction/transaction.component';
 
 const routes: Routes = [
+  { path: ' ',pathMatch:"full", redirectTo:'login'},
 	{ path: 'registor', component: ClientFormComponent },
   { path: 'login', component: ClientLoginComponent },
   { path: 'home', component: HomeComponent },
