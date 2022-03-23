@@ -40,7 +40,7 @@ export class MoneyTransaction implements OnInit{
       this.client.clientid=clientid;
     }
     onDeposit() {
-      alert("Clientid"+this.client.clientid);
+      alert("Deposit Successfully");
     this.clientService.moneydeposit(this.client.clientid,this.damount).subscribe(result => {this.gotoHomePage();
     });
   }
@@ -49,7 +49,7 @@ export class MoneyTransaction implements OnInit{
     this.router.navigate([`home/${this.login.username}/${this.login.password}`]);
   }   
   onWithdraw() {
-    alert("Clientid"+this.client.clientid);
+      alert("Withdraw Successfully");
     this.clientService.moneywithdraw(this.client.clientid,this.wamount).subscribe(result =>{this.gotoHomePage()});
   }
     
