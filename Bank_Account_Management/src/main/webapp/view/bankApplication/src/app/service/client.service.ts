@@ -39,7 +39,7 @@ export class ClientService {
   }
   
   public save(client: Client) {
-    return this.http.post<Client>(this.newClient, client, { headers: this.httpHeaders });
+    return this.http.post<boolean>(this.newClient, client, { headers: this.httpHeaders });
   }
   public getTransreport(client: Client): Observable<Transaction[]> {
     return this.http.post<Transaction[]>(this.transReport, client, { headers: this.httpHeaders });

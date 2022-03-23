@@ -44,7 +44,7 @@ public class ClientService {
 		String doj=formatter.format(date);
 		client.setDoj(doj);
 		client.setAccountbalance(1000);
-		if(dao.findByUsername(username)==null && dao.findByMobileno(mobile)==null && dao.findByClientaccount(client.getClientaccount())==null)
+		if(dao.findByUsername(username)==null && dao.findByClientaccount(client.getClientaccount())==null)
 		{
 			dao.save(client);
 			System.out.println("New Client Added Successfully");

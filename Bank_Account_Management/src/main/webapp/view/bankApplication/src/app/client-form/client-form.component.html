@@ -1,63 +1,56 @@
-<div >
-  <div >
+
+<div class="body">
+  <div style="background-color: #4CAF50; height: 45px; width: 100%; align-items: center; color: white; ">
+    <h1>Client Registration</h1></div>
+  <br><br>
+  
     <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
-      <div class="form-group">
+      
         <label for="name">Firstname</label>
         <input type="text" [(ngModel)]="client.firstname" class="form-control" id="firstname" name="firstname" placeholder="Enter your firstname"
           required #firstname="ngModel">
-      </div>
-      <div [hidden]="!firstname.pristine" class="alert alert-danger">Firstname is required</div>
-		
-	  <div class="form-group">
+      <div [hidden]="!firstname.pristine" class="alert-danger">Firstname is required</div>
+      <br>
         <label for="name">Lastname</label>
         <input type="text" [(ngModel)]="client.lastname" class="form-control" id="lastname" name="lastname" placeholder="Enter your lastname"
           required #lastname="ngModel">
-      </div>
-      <div [hidden]="!lastname.pristine" class="alert alert-danger">Lastname is required</div>
-	
-      <div class="form-group">
+      <div [hidden]="!lastname.pristine" class="alert-danger">Lastname is required</div>
+      <br>
         <label for="email">Email</label>
         <input type="text" [(ngModel)]="client.email" class="form-control" id="email" name="email" placeholder="Enter your email address"
           required #email="ngModel">
-        <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
-      </div>
-
-      <div class="form-group">
+        <div [hidden]="!email.pristine" class="alert-danger">Email is required</div>
+      <br>
         <label for="clientaddress">Address</label>
         <input type="text" [(ngModel)]="client.clientaddress" class="form-control" id="clientaddress" name="clientaddress" placeholder="Enter your address"
           required #clientaddress="ngModel">
-        <div [hidden]="!clientaddress.pristine" class="alert alert-danger">Address is required</div>
-      </div>
-      <div class="form-group">
+        <div [hidden]="!clientaddress.pristine" class="alert-danger">Address is required</div>
+      <br>
         <label for="username">Username</label>
         <input type="text" [(ngModel)]="client.username" class="form-control" id="username" name="username" placeholder="Enter your username"
           required #username="ngModel">
-      </div>
-      <div [hidden]="!username.pristine" class="alert alert-danger">Username is required</div>
-      
-      <div class="form-group">
+      <div [hidden]="!username.pristine" class="alert-danger">Username is required</div>
+      <br>
         <label for="password">Password</label>
         <input type="password" [(ngModel)]="client.password" class="form-control" id="password" name="password" placeholder=""
           required #password="ngModel">
-      </div>
-      <div [hidden]="!password.pristine" class="alert alert-danger">Password is required</div>
-      
-      <div class="form-group">
+      <div [hidden]="!password.pristine" class="alert-danger">Password is required</div>
+      <br>
         <label for="clientaccount">Account Number</label>
         <input type="number" [(ngModel)]="client.clientaccount" class="form-control" id="clientaccount" name="clientaccount" placeholder="Enter the  Account Number"
           required #clientaccount="ngModel">
-      </div>
-      <div [hidden]="!clientaccount.pristine" class="alert alert-danger">Password is required</div>
-
-      <div class="form-group">
+      <div [hidden]="!clientaccount.pristine" class="alert-danger">Password is required</div>
+      <br>
         <label for="mobileno">Mobile Number</label>
         <input type="number" [(ngModel)]="client.mobileno" class="form-control" id="mobileno" name="mobileno" placeholder="Enter your mobile number"
           required #mobileno="ngModel">
-      </div>
-      <div [hidden]="!mobileno.pristine" class="alert alert-danger">Mobile number is required</div>
-
+      <div [hidden]="!mobileno.pristine" class="alert-danger">Mobile number is required</div>
+      <br>
+      <div style="background-color: #fa1515" class="err">{{errormsg}}</div>
       <button type="submit" [disabled]="!clientForm.form.valid" class="btn btn-info">Submit</button>
     </form>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
-</div>
-

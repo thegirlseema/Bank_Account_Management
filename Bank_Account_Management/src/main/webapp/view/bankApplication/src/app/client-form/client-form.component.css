@@ -1,0 +1,12 @@
+.body{
+    text-align:center;
+    background-color:rgb(0, 255, 170);
+	background-image:url("https://5.imimg.com/data5/EK/HD/MY-25455024/banking-management-system-250x250.jpg");
+	background-size: 100%;
+    background-size:cover;
+
+}
+.alert-danger{
+    color:rgb(255, 0, 0);
+    
+}

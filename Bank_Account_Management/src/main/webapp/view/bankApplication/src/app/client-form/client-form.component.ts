@@ -11,7 +11,7 @@ import { Client } from '../model/client';
 export class ClientFormComponent {
 
   client: Client;
-
+  errormsg:string='';
   constructor(private route: ActivatedRoute, private router: Router, 
     private clientService: ClientService) {
     this.client=this.client=new Client(0,'','','',0,0,'',0,0,'',0,'',0,'');
@@ -20,7 +20,16 @@ export class ClientFormComponent {
 
   onSubmit() {
 
-    this.clientService.save(this.client).subscribe(result => this.gotoLogInPage());
+    this.clientService.save(this.client).subscribe(result => {
+      if(result)
+      {
+        this.gotoLogInPage();
+      }
+      else
+      {
+        this.errormsg="Username / Account number is already exist"; 
+      }
+    });//this.gotoLogInPage());
   }
   
   
