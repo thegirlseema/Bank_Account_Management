@@ -16,6 +16,8 @@
           required #password="ngModel">
         <div [hidden]="!password.pristine" class="alert alert-danger">Password is required</div>
       </div>
+      <b>{{errormsg}}</b>
+      <br>
       <button type="submit" [disabled]="!clientLogin.form.valid" class="btn btn-info">Submit</button>
     </form>
     <div>

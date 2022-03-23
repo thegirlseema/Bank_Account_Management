@@ -14,7 +14,7 @@ export class ClientFormComponent {
 
   constructor(private route: ActivatedRoute, private router: Router, 
     private clientService: ClientService) {
-    this.client=new Client();
+    this.client=this.client=new Client(0,'','','',0,0,'',0,0,'',0,'',0,'');
 
   }
 

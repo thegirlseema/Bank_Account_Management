@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,14 +47,16 @@ public class ClientRestcontroller {
         return client;
     }
 	
-	@PostMapping(path="/deposit",  consumes = "application/json",produces = "application/json")
-    public  Client deposit(@RequestParam long clientid,@RequestParam long amount) throws Exception {
+	@PostMapping(path="/deposit/{clientid}/{amount}",  consumes = "application/json",produces = "application/json")
+    public  Client deposit(@PathVariable long clientid,@PathVariable long amount) throws Exception {
+		System.out.println("Deposit class is called");
 		Client obj=service.deposit(amount, clientid);
 		return obj;
     }
 	
-	@PostMapping(path="/withdraw",  consumes = "application/json",produces = "application/json")
-    public  Client withdraw(@RequestParam long clientid,@RequestParam long amount) throws Exception {
+	@PostMapping(path="/withdraw/{clientid}/{amount}",  consumes = "application/json",produces = "application/json")
+    public  Client withdraw(@PathVariable long clientid,@PathVariable long amount) throws Exception {
+		System.out.println("Withdraw class is called");
 		Client obj=service.withdraw(amount, clientid);
 		return obj;
     }

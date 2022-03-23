@@ -39,6 +39,11 @@ public class ClientService {
 	public boolean newClient(Client client){
 		String username=client.getUsername();
 		long mobile=client.getMobileno();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); 
+		Date date=new Date();
+		String doj=formatter.format(date);
+		client.setDoj(doj);
+		client.setAccountbalance(1000);
 		if(dao.findByUsername(username)==null && dao.findByMobileno(mobile)==null && dao.findByClientaccount(client.getClientaccount())==null)
 		{
 			dao.save(client);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from '../service/client.service';
 import { Login } from '../model/login';
@@ -11,24 +11,46 @@ import { Transaction } from '../model/transaction';
   templateUrl: './moneytransfer.component.html',
   styleUrls: ['./moneytransfer.component.css']
 })
-export class MoneyTransaction{
+export class MoneyTransaction implements OnInit{
   
    damount:number=0;
    wamount:number=0;
-    private client:Client;
+   login: Login;
+    private client:Client ;
      constructor(private route: ActivatedRoute, private router: Router, private clientService: ClientService) {
-	this.client=new Client();
+	this.client=new Client(0,'','','',0,0,'',0,0,'',0,'',0,'');
+  this.login =  new Login();
   }
+
+  ngOnInit(): void {
+    
+    this.route.params.subscribe((parameters)=>{
+
+      this.login.username = String(parameters['username']);
+      this.login.password = String(parameters['password']);
+
+      this.clientService.login(this.login).subscribe(data =>{this.client=data,this.setClient(this.client.clientid)});
+
+     
+    });
+    
+  }
+    setClient(clientid:number)
+    {
+      this.client.clientid=clientid;
+    }
     onDeposit() {
-    this.clientService.moneydeposit(this.client,this.damount).subscribe(result => {
-        return this.gotoHomePage();
+      alert("Clientid"+this.client.clientid);
+    this.clientService.moneydeposit(this.client.clientid,this.damount).subscribe(result => {this.gotoHomePage();
     });
   }
   gotoHomePage(){
-	this.router.navigate(['/home']);
+    
+    this.router.navigate([`home/${this.login.username}/${this.login.password}`]);
   }   
   onWithdraw() {
-    this.clientService.moneywithdraw(this.client,this.wamount).subscribe(result => this.gotoHomePage());
+    alert("Clientid"+this.client.clientid);
+    this.clientService.moneywithdraw(this.client.clientid,this.wamount).subscribe(result =>{this.gotoHomePage()});
   }
     
   }
