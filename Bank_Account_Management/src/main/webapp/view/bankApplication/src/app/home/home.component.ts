@@ -23,8 +23,12 @@ export class HomeComponent implements OnInit{
       
   }
 
-  registerPage() {
-    this.router.navigate(['/registor']);
+  lastTransaction(){
+    this.route.params.subscribe((parameters)=>{
+      console.log(String(parameters['username']));
+      console.log(String(parameters['password']));
+      this.router.navigate([`lasttrans/${String(parameters['username'])}/${String(parameters['password'])}`]);
+    });
   }
 
   totalTransaction() {
@@ -34,13 +38,13 @@ export class HomeComponent implements OnInit{
       this.router.navigate([`report/${String(parameters['username'])}/${String(parameters['password'])}`]);
     });
 
-    // this.bookService.findByName(String(parameters['loginid'])).subscribe(allbook=>this.Books=allbook);
-    //this.router.navigate(['/report'])
+    
   }
 
   logout() {
     this.router.navigate(['/login']);
   }
+  
   moneyTranfer() {
     this.route.params.subscribe((parameters)=>{
       console.log(String(parameters['username']));
@@ -48,4 +52,18 @@ export class HomeComponent implements OnInit{
       this.router.navigate([`moneytransfer/${String(parameters['username'])}/${String(parameters['password'])}`]);
     });
     }
+    clientbalance() {
+      this.route.params.subscribe((parameters)=>{
+        console.log(String(parameters['username']));
+        console.log(String(parameters['password']));
+        this.router.navigate([`balance/${String(parameters['username'])}/${String(parameters['password'])}`]);
+      });
+    }
+      accountdetails() {
+        this.route.params.subscribe((parameters)=>{
+          console.log(String(parameters['username']));
+          console.log(String(parameters['password']));
+          this.router.navigate([`accountdetails/${String(parameters['username'])}/${String(parameters['password'])}`]);
+        });
+}
 }

@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountDetails } from './account-details/account-details.component';
+import { ClientBalance } from './client-balance/client-balance.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { ClientLoginComponent } from './client-login/client-login.component';
 import { HomeComponent } from './home/home.component';
+import { LastTransactionComponent } from './last-transaction/last-transaction.component';
 
 import { MoneyTransaction } from './moneytransfer/moneytransfer.component';
 import { TransactionComponent } from './transaction/transaction.component';
@@ -13,7 +16,10 @@ const routes: Routes = [
   { path: 'login', component: ClientLoginComponent },
   { path: 'home/:username/:password', component: HomeComponent },
   { path: 'report/:username/:password', component: TransactionComponent },
-  { path: 'moneytransfer/:username/:password', component: MoneyTransaction }
+  { path: 'moneytransfer/:username/:password', component: MoneyTransaction },
+  { path: 'lasttrans/:username/:password', component: LastTransactionComponent },
+  {path: 'balance/:username/:password', component: ClientBalance},
+  {path: 'accountdetails/:username/:password', component: AccountDetails}
 ];
 
 @NgModule({
