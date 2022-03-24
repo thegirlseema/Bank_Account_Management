@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+.body
+{
+    background-image: url(https://blog.avast.com/hubfs/avast-blog/Avast-Hub-History-of-Cyber-Security-Images-Cover.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Montserrat', sans-serif;
+	height: 90vh;
+}
+
+h1 {
+    background-color: darkcyan;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 2px 2px 5px rgb(64, 165, 233);
+	color: rgb(34, 46, 209);
+	font-weight: initial;
+	margin: 0;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.container
+{
+    background: transparent;
+	border-radius: 10px;
+  	box-shadow: 10px 20px 40px rgba(227, 236, 238, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 360px;
+	max-width: 80%;
+	min-height: 40%;
+}
+.box
+{
+    padding-top: 20px;
+}
+
+input
+{
+    width: 60%;
+    height: 50%;
+    justify-content: center;
+    padding: 12px 12px;
+	
+}
+
+input[type="button"]
+{
+    margin-left: 80px;
+    
+}

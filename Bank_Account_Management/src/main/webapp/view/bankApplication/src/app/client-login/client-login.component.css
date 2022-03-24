@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.body
+{
+ background-image: url(https://storage.googleapis.com/blogs-images/ciscoblogs/1/5bcde1aee0c41.jpg);
+ background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Montserrat', sans-serif;
+	height: 100vh;
+	margin: -10px 0 50px;
+}
+
+.foot
+{
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 2px 2px 5px rgb(64, 165, 233);
+	color: rgb(34, 46, 209);
+	font-weight: initial;
+	margin: 0;
+}
+
+button {
+	border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 12px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+.alert-danger
+{
+	color: #FF4B2B;
+}
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 20px 25px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 12px;
+	width: 100%;
+}
+
+.container {
+	background-color: #fff;
+	border-radius: 10px;
+  	box-shadow: 10px 20px 40px rgba(36, 193, 221, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 360px;
+	max-width: 100%;
+	min-height: 60%;
+}
+
+.form-container {
+	position: inherit;
+	height: 80%;
+}
+
+.log-in-container {
+	left: 10px;
+	width: 50%;
+	z-index: 1;
+}

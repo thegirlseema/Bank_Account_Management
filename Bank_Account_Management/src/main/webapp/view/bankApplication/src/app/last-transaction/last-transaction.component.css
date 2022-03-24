@@ -1,14 +1,22 @@
 h1 {
-	color: #0ae312;
+	color: #3f16b1;
 }
-
+table
+{
+	margin-left: 30%;
+}
 table, th, td {
+	justify-content: center;
 	width: 40%;
-	background-color:rgb(177, 253, 200);
+	background-color:rgb(48, 214, 236);
 	border: 1px solid black;
 }
-body{
-	background-color:yellow;
-	background-image:url("https://5.imimg.com/data5/EK/HD/MY-25455024/banking-management-system-250x250.jpg");
-	background-size:cover;
+.body{
+	background-image:url(https://5.imimg.com/data5/EK/HD/MY-25455024/banking-management-system-250x250.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.container
+{
+	text-align: center;
 }

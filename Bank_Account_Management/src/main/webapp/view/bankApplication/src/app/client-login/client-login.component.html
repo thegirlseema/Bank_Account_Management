@@ -1,6 +1,7 @@
- <div >
- <h1>Login</h1>
-  <div >
+<div class="body">
+  <div class="container">
+    <div class="form-container">
+    <h1>Login</h1>
     <form (ngSubmit)="onSubmit()" #clientLogin="ngForm">
       <div >
         <label for="username">Username</label>
@@ -20,10 +21,10 @@
       <br>
       <button type="submit" [disabled]="!clientLogin.form.valid" class="btn btn-info">Submit</button>
     </form>
-    <div>
+    <div class="foot">
     <a routerLink="/registor"> Register New User </a>
   </div>
   </div>
-  
+  </div>
 </div>
 

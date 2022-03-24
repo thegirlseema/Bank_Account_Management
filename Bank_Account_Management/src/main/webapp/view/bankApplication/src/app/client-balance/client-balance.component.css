@@ -1,14 +1,31 @@
+.body
+{
+	height: 100%;
+	background-image: url(https://th.bing.com/th/id/OIP.C0ECGbpspHBAVbNi_pqtRgHaFj?pid=ImgDet&w=800&h=600&rs=1);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
 h1 {
-	color: #0ae312;
+	color: #125083;
+}
+
+.container h1
+{
+	text-align: center;
+}
+.foot
+{
+	
+	margin-left: 46%;
+	padding-bottom: 300px;
+}
+table
+{
+	margin-left: 30%;
 }
 
 table, th, td {
 	width: 40%;
-	background-color:rgb(177, 253, 200);
+	background-color:rgb(167, 125, 11);
 	border: 1px solid black;
-}
-body{
-	background-color:yellow;
-	background-image:url("https://5.imimg.com/data5/EK/HD/MY-25455024/banking-management-system-250x250.jpg");
-	background-size:cover;
 }

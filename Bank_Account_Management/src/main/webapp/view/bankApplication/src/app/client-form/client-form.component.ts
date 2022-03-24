@@ -20,8 +20,8 @@ export class ClientFormComponent {
 
   onSubmit() {
 
-    this.clientService.save(this.client).subscribe(result => {
-      if(result)
+    this.clientService.save(this.client).subscribe(result => {console.log(result);
+      if(result==true)
       {
         this.gotoLogInPage();
       }

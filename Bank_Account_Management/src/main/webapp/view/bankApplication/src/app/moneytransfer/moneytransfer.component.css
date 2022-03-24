@@ -1,0 +1,37 @@
+.body
+{
+    background-image: url(https://th.bing.com/th/id/OIP.TTIw_AyNrdc57fTkmo-HcQHaD5?pid=ImgDet&rs=1);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.container
+{
+    background-color: bisque;
+	border-radius: 10px;
+  	box-shadow: 10px 20px 40px rgba(36, 193, 221, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 360px;
+    margin-left: 35%;
+	max-width: 80%;
+	min-height: 60%;
+    padding: 10px;
+}
+.form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100%;
+	text-align: center;
+}
+*
+{
+    box-sizing: border-box;
+}
+h3 , h1 , label
+{
+    color: blue;
+
+}

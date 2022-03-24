@@ -44,7 +44,7 @@ public class ClientRestcontroller {
 		{
 			return client;
 		}
-        return client;
+        return null;
     }
 	
 	@PostMapping(path="/deposit/{clientid}/{amount}",  consumes = "application/json",produces = "application/json")

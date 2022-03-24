@@ -1,12 +1,74 @@
-.body{
-    text-align:center;
-    background-color:rgb(0, 255, 170);
-	background-image:url("https://5.imimg.com/data5/EK/HD/MY-25455024/banking-management-system-250x250.jpg");
-	background-size: 100%;
-    background-size:cover;
-
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(https://wallpaperaccess.com/full/1658089.jpg) ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
 }
 .alert-danger{
-    color:rgb(255, 0, 0);
+    color:rgb(231, 222, 222);
+}
+.container
+{
+    background-color: transparent;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+   
+input[type=text],
+input[type=password],
+input[type=password],
+input[type=number],
+input[type=phone] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #cbcbcb;
+    font-family: cursive;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=number]:focus,
+input[type=number]:focus {
+    background-color: #fff;
+    outline: black 5px dotted;
+}
+
+/* Set a style for all buttons */
+
+button 
+{
+    background-color: black;
+    transition-duration: 0.4s;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#name
+{
+    text-decoration-color: beige;
+}
+
+
+button:hover 
+{
+    background-color: orange;
+}
+.container 
+{
+    max-width: 350px;
+    margin-left: 10px ;
+    padding-left: 5px;
     
 }

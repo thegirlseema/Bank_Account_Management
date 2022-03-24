@@ -1,42 +1,62 @@
-<div>
-	<div >
-		<div>
-            <h1>Account Details</h1>
-        </div>
-        <table border="1">
-            <tbody>
-              <tr>
-                <th >Firstname</th>
-                <td>{{ client.firstname}}</td> 
-              </tr>
-              <tr>
-                <th >Lastname</th>
-                <td>{{ client.lastname}}</td> 
-              </tr>
-              <tr>
-                <th >Account Number</th>
-                <td>{{ client.clientaccount}}</td> 
-              </tr>
-              <tr>
-                <th >Date of Joining</th>
-                <td>{{ client.doj}}</td> 
-              </tr>
-              <tr>
-                <th >Email</th>
-                <td>{{ client.email}}</td> 
-              </tr>
-              <tr>
-                <th >Mobile Number</th>
-                <td>{{ client.mobileno}}</td> 
-              </tr>
-              <tr>
-                <th >Address</th>
-                <td>{{ client.clientaddress}}</td> 
-              </tr>
-            </tbody>
-          </table>
-		<input
-            type="button"
-            value="Home Page"
-            (click)="home()">	</div>
+<div class="body">
+  <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+  <div class="container">
+      <div class="heading">
+          <h1>Account Details</h1>
+      </div>
+      <div class="table">
+      <table border="1">
+          <tbody>
+            <tr>
+              <th >Firstname</th>
+              <td>{{ client.firstname}}</td> 
+            </tr>
+            <tr>
+              <th >Lastname</th>
+              <td>{{ client.lastname}}</td> 
+            </tr>
+            <tr>
+              <th >Account Number</th>
+              <td>{{ client.clientaccount}}</td> 
+            </tr>
+            <tr>
+              <th >Date of Joining</th>
+              <td>{{ client.doj}}</td> 
+            </tr>
+            <tr>
+              <th >Email</th>
+              <td>{{ client.email}}</td> 
+            </tr>
+            <tr>
+              <th >Mobile Number</th>
+              <td>{{ client.mobileno}}</td> 
+            </tr>
+            <tr>
+              <th >Address</th>
+              <td>{{ client.clientaddress}}</td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+        <input
+          type="button"
+          value="Home Page"
+          (click)="home()">	
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+  </div>
 </div>

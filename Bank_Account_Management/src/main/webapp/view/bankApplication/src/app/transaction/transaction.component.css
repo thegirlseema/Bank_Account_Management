@@ -1,0 +1,30 @@
+.body
+{
+  background-image: url(https://media.istockphoto.com/photos/piggy-bank-dollar-bag-on-a-laptop-picture-id1275761597?b=1&k=20&m=1275761597&s=170667a&w=0&h=v8S7_c6h5xK8B034rBfgypNVgPgiHY2jovD4srzyQ4I=);
+  background-size:100% 100%;
+  justify-content: center;
+}
+.foot
+{
+  margin-left: 130px;
+  padding-bottom: 150px;
+}
+.table
+{
+  margin-left: 35%;
+  padding-top: 150px;
+}
+tr:nth-child(even)
+{
+    background-color: #2387ca;
+    padding : 10px;
+}
+tr:nth-child(odd)
+{
+    background-color: #9bcae9;
+    padding : 10px;
+}
+th {
+  background-color: #072464;
+  color: white;
+}

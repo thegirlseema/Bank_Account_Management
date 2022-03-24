@@ -1,34 +1,24 @@
-<div>
-      <h3>Deposit</h3>
-      <label>Enter the amount to deposit</label>
-      <div>
-            <input type="number"  name="amount" required [(ngModel)]="damount"/>
+<div class="body">
+      <div class="container">
+         <div class="form">
+         <h1>TRANSACTION</h1>
+         <h3>Deposit</h3>
+         <label>Enter the amount to deposit</label>
+         <div>
+               <input type="number"  name="amount" required [(ngModel)]="damount"/>
+         </div>
+         <br>
+         <button (click)="onDeposit()" >Submit</button>
+         <br>
+         <br>
+         <h3>Withdraw</h3>
+         <label>Enter the amount to withdraw</label>
+         <div>
+               <input type="number"  name="amount" required  [(ngModel)]="wamount"/>
+         </div><br>
+         <button (click)="onWithdraw()" >Submit</button>
+         <br><br>
+         <button (click)="gotoHomePage()" >Home Page</button>
+         </div>
       </div>
-      <button (click)="onDeposit()" >Submit</button>
-      <br>
-      <h3>Withdraw</h3>
-      <label>Enter the amount to withdraw</label>
-      <div>
-            <input type="number"  name="amount" required  [(ngModel)]="wamount"/>
-      </div>
-      <button (click)="onWithdraw()" >Submit</button>
-      <br>
-      <button (click)="gotoHomePage()" >Home Page</button>
-</div>
-
-
-<!--div >
-    <form (ngSubmit)="onDeposit()" #depositForm="ngForm">
-    <input type="number" [(ngModel)]="amount" name="amount" placeholder="Enter your Amount"
-          required #amount="ngModel">
-          <div [hidden]="!amount.pristine">Deposit Amount is required</div>
-         <button type="submit" [disabled]="!depositForm.form.valid" >Deposit</button>
-    </form>
-    <form (ngSubmit)="onWithdraw()" #withDrawForm="ngForm">
-    <input type="number" [(ngModel)]="amount" name="amount" placeholder="Enter your Amount"
-          required #amount="ngModel">
-          <div [hidden]="!amount.pristine" >Withdraw Amount is required</div>
-         <button type="submit" [disabled]="!withDrawForm.form.valid" >Withdraw</button>
-    </form>
-    <a routerLink="/home">go to Home Page</a>
-  </div-->
+   </div>
