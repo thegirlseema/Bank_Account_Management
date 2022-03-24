@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.bank.client.ClientTransaction;
 
 @Repository
-public interface TransactionDAO extends CrudRepository<ClientTransaction, Long>
+public interface TransactionRepository extends CrudRepository<ClientTransaction, Long>
 {
 	List<ClientTransaction> findByUsername(String username);
 	List<ClientTransaction> findByClientid(long clientid);

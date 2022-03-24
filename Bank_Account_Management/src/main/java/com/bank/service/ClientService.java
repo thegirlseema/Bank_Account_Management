@@ -13,26 +13,26 @@ import org.springframework.stereotype.Service;
 import com.bank.client.Client;
 import com.bank.client.ClientTransaction;
 import com.bank.clientbo.ClientBO;
-import com.bank.clientdao.ClientDAO;
-import com.bank.clientdao.TransactionDAO;
+import com.bank.clientdao.ClientRepository;
+import com.bank.clientdao.TransactionRepository;
 import com.bank.notfoundexception.ClientNotFoundException;
 @Service
 public class ClientService {
 	@Autowired
-	private ClientDAO dao;
+	private ClientRepository clientRepository;
 	
 	@Autowired
-	private TransactionDAO tdao;
+	private TransactionRepository transactionRepository;
 	
 	@Transactional
 	public List<Client> allClient(){
 		List<Client> clientList=new ArrayList<>();
-		 dao.findAll().forEach(client -> clientList.add(client));
+		 clientRepository.findAll().forEach(client -> clientList.add(client));
 		 return clientList;
 	}
 	@Transactional
 	public Client findByUser(String username){
-		Client clientList=dao.findByUsername(username);
+		Client clientList=clientRepository.findByUsername(username);
 		 return clientList;
 	}
 	@Transactional
@@ -44,9 +44,9 @@ public class ClientService {
 		String doj=formatter.format(date);
 		client.setDoj(doj);
 		client.setAccountbalance(1000);
-		if(dao.findByUsername(username)==null && dao.findByClientaccount(client.getClientaccount())==null)
+		if(clientRepository.findByUsername(username)==null && clientRepository.findByClientaccount(client.getClientaccount())==null)
 		{
-			dao.save(client);
+			clientRepository.save(client);
 			System.out.println("New Client Added Successfully");
 			return true;
 		}
@@ -58,7 +58,7 @@ public class ClientService {
 	@Transactional
 	public Client validate(String user, String password) throws Exception {
 		System.out.println("Service Class is called");
-		Client c=dao.findByUsername(user);
+		Client c=clientRepository.findByUsername(user);
 		
 		try {
 		if(c==null) {
@@ -76,22 +76,22 @@ public class ClientService {
 	@Transactional
 	public List<ClientTransaction> totalTransaction(Client obj){
 		long id=obj.getClientid();
-		return tdao.findByClientid(id);
+		return transactionRepository.findByClientid(id);
 	}
 	
 	@Transactional
 	public Client withdraw(long amount,long id)
 	{
 		ClientBO bo=new ClientBO();
-		Client obj=dao.findByClientid(id);
+		Client obj=clientRepository.findByClientid(id);
 		Client obj1=bo.withdraw(amount, obj);
-		dao.save(obj1);
+		clientRepository.save(obj1);
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
 		Date date=new Date();
 		String sdate=formatter1.format(date);
 		//String tdate, String username, String type, long amount, long clientid
 		ClientTransaction transobj=new ClientTransaction(sdate,obj.getUsername(),"Withdraw",amount,obj.getClientid());
-		tdao.save(transobj);
+		transactionRepository.save(transobj);
 		return obj1;
 	}
 	
@@ -99,15 +99,15 @@ public class ClientService {
 	public Client deposit(long amount,long id)
 	{
 		ClientBO bo=new ClientBO();
-		Client obj=dao.findByClientid(id);
+		Client obj=clientRepository.findByClientid(id);
 		Client obj1=bo.deposit(amount, obj);
-		dao.save(obj1);
+		clientRepository.save(obj1);
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
 		Date date=new Date();
 		String sdate=formatter1.format(date);
 		//String tdate, String username, String type, long amount, long clientid
 		ClientTransaction transobj=new ClientTransaction(sdate,obj.getUsername(),"Deposit",amount,obj.getClientid());
-		tdao.save(transobj);
+		transactionRepository.save(transobj);
 		return obj1;
 	}
 	

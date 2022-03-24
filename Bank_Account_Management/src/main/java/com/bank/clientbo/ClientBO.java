@@ -3,7 +3,7 @@ package com.bank.clientbo;
 import org.springframework.stereotype.Component;
 
 import com.bank.client.Client;
-import com.bank.clientdao.TransactionDAO;
+import com.bank.clientdao.TransactionRepository;
 
 @Component
 public class ClientBO {
