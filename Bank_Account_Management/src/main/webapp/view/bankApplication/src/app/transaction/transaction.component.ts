@@ -45,7 +45,9 @@ export class TransactionComponent implements OnInit {
   home() {
     this.router.navigate([`home/${this.login.username}/${this.login.password}`]);
   }
-  
+  logout() {
+    this.router.navigate(['/login']);
+  }
   getTransaction(clientid:number) {
     this.client.clientid = clientid;
     this.clientService.getTransreport(this.client).subscribe(data => {

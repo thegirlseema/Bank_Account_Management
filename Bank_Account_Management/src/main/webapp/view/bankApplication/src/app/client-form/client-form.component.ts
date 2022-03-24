@@ -12,6 +12,8 @@ export class ClientFormComponent {
 
   client: Client;
   errormsg:string='';
+  confirmPassword: string='';
+  missmatch:string='';
   constructor(private route: ActivatedRoute, private router: Router, 
     private clientService: ClientService) {
     this.client=this.client=new Client(0,'','','',0,0,'',0,0,'',0,'',0,'');
@@ -20,16 +22,23 @@ export class ClientFormComponent {
 
   onSubmit() {
 
-    this.clientService.save(this.client).subscribe(result => {console.log(result);
-      if(result==true)
-      {
-        this.gotoLogInPage();
-      }
-      else
-      {
-        this.errormsg="Username / Account number is already exist"; 
-      }
-    });//this.gotoLogInPage());
+    if(this.client.password==this.confirmPassword){
+      this.missmatch="";
+      this.clientService.save(this.client).subscribe(result => {console.log(result);
+        if(result==true)
+        {
+          this.gotoLogInPage();
+        }
+        else
+        {
+          this.errormsg="Username / Account number / Mobile number is already exist"; 
+        }
+      });
+    }
+    else
+    {
+      this.missmatch="Passwords are not matching";
+    }
   }
   
   

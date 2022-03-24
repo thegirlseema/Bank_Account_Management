@@ -52,5 +52,7 @@ export class MoneyTransaction implements OnInit{
       alert("Withdraw Successfully");
     this.clientService.moneywithdraw(this.client.clientid,this.wamount).subscribe(result =>{this.gotoHomePage()});
   }
-    
+  logout() {
+    this.router.navigate(['/login']);
+  }
   }

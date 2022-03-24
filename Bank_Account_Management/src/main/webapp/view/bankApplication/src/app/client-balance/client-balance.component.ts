@@ -40,5 +40,8 @@ export class ClientBalance implements OnInit {
   home(){
     this.router.navigate([`home/${this.login.username}/${this.login.password}`]);
   }
+  logout() {
+    this.router.navigate(['/login']);
+  }
 
 }

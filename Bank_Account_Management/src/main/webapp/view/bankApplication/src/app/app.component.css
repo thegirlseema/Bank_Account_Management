@@ -1,0 +1,35 @@
+body
+{
+  background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+}
+header {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    min-height: 5px;
+  }
+  header p {
+    font-weight: 700;
+    text-align: center;
+    font-size: 40px;
+    font-family: Hack, sans-serif;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, rgb(52, 122, 214), #fff, rgb(31, 41, 172));
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    animation: shine 5s linear infinite;
+    position: relative;
+  }
+  
+  @keyframes shine {
+    0% {
+      background-position-x: -500%;
+    }
+    100% {
+      background-position-x: 500%;
+    }
+  }

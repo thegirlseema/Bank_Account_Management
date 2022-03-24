@@ -36,7 +36,9 @@ export class AccountDetails implements OnInit {
   {
     this.client=client;
   }
-
+  logout() {
+    this.router.navigate(['/login']);
+  }
   home(){
     this.router.navigate([`home/${this.login.username}/${this.login.password}`]);
   }

@@ -1,10 +1,9 @@
 package com.bank.service;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import java.text.SimpleDateFormat;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import com.bank.client.ClientTransaction;
 import com.bank.clientbo.ClientBO;
 import com.bank.clientdao.ClientRepository;
 import com.bank.clientdao.TransactionRepository;
+import com.bank.notfoundexception.ClientAlreadyExist;
 import com.bank.notfoundexception.ClientNotFoundException;
 @Service
 public class ClientService {
@@ -44,14 +44,23 @@ public class ClientService {
 		String doj=formatter.format(date);
 		client.setDoj(doj);
 		client.setAccountbalance(1000);
-		if(clientRepository.findByUsername(username)==null && clientRepository.findByClientaccount(client.getClientaccount())==null)
-		{
-			clientRepository.save(client);
-			System.out.println("New Client Added Successfully");
+		
+		try {
+			if(clientRepository.findByUsername(username)!=null || clientRepository.findByClientaccount(client.getClientaccount())!=null
+					|| clientRepository.findByMobileno(client.getMobileno())!=null) {
+				throw new ClientAlreadyExist("Username / Account Number /Mobile Number is already exist");
+			}
+			else {
+				clientRepository.save(client);
+				System.out.println("New Client Added Successfully");
+			}
+			}
+			catch(Exception e)
+			{
+			System.out.println(e);
+				return false;
+			}
 			return true;
-		}
-		System.out.println("Username/Mobile Number/Accountnumber is already exist");
-		return false;
 	}
 	
 	
