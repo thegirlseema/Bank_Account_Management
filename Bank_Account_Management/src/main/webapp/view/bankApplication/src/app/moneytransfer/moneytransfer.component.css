@@ -3,28 +3,22 @@
     background-image: url(https://th.bing.com/th/id/OIP.TTIw_AyNrdc57fTkmo-HcQHaD5?pid=ImgDet&rs=1);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+	padding-bottom: 20px;
 }
 .container
 {
-    background-color: bisque;
-	border-radius: 10px;
+	background: linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+    border-radius: 10px;
   	box-shadow: 10px 20px 40px rgba(36, 193, 221, 0.25), 0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 360px;
+	width: 300px;
+	margin-top: 20px;
+	margin-bottom: 40px;
     margin-left: 35%;
 	max-width: 80%;
 	min-height: 60%;
     padding: 10px;
-}
-.form {
-	background-color: #FFFFFF;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	height: 100%;
-	text-align: center;
 }
 *
 {
@@ -34,4 +28,29 @@ h3 , h1 , label
 {
     color: blue;
 
+}
+
+.btn-float-left
+{
+	padding: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	border-radius: 20px;
+	float: left;	
+}
+.btn-float-right{
+	padding: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	border-radius: 20px;
+	float: right;
+}
+#submit
+{
+	border-radius: 6px;
+}
+button:hover 
+{
+    background-color: rgb(108, 106, 226);
+	border-color: aliceblue;
 }

@@ -38,7 +38,6 @@ h1 {
 {
     padding-top: 20px;
 }
-
 input
 {
     width: 60%;
@@ -51,5 +50,12 @@ input
 input[type="button"]
 {
     margin-left: 80px;
+	border-radius: 15px;
     
+}
+
+input[type="button"]:hover
+{
+   background-color: rgb(46, 139, 192);
+	border-color: aliceblue;
 }

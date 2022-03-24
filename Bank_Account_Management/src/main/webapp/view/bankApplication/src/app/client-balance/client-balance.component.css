@@ -5,19 +5,40 @@
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
+.btn-float-left
+{
+	padding: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	border-radius: 20px;
+	float: left;	
+}
+.btn-float-right{
+	padding: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	border-radius: 20px;
+	float: right;
+}
+button:hover 
+{
+    background-color: rgb(108, 106, 226);
+	border-color: aliceblue;
+}
 h1 {
-	color: #125083;
+	color: rgb(10, 6, 1);
+	text-shadow: 5px 3px 6px rgb(110, 72, 0);
+	
+}
+.container
+{
+	padding-top: 60px;
+	padding-bottom: 180px;
 }
 
 .container h1
 {
 	text-align: center;
-}
-.foot
-{
-	
-	margin-left: 46%;
-	padding-bottom: 300px;
 }
 table
 {
@@ -26,6 +47,6 @@ table
 
 table, th, td {
 	width: 40%;
-	background-color:rgb(119, 240, 71);
+	background-color:beige;
 	border: 1px solid black;
 }

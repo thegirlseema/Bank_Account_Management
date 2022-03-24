@@ -6,7 +6,7 @@
     
 }
 .alert-danger{
-    color:rgb(236, 226, 226);
+    color:rgb(235, 236, 226);
 }
 .container
 {
@@ -44,22 +44,16 @@ input[type=number]:focus {
 
 button 
 {
-    background-color: black;
+    background-color: rgb(8, 7, 4);
     transition-duration: 0.4s;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+    padding: 10px 10px;
+    margin: 9px 9px;
     border-color: white;
     border-radius: 12px;
     cursor: pointer;
-    width: 100%;
+    width: 25%;
 }
-
-#name
-{
-    text-decoration-color: beige;
-}
-
 
 button:hover 
 {
@@ -68,7 +62,7 @@ button:hover
 .container 
 {
     max-width: 350px;
-    margin-left: 10px ;
+    margin-left: 5px ;
     padding-left: 5px;
     
 }

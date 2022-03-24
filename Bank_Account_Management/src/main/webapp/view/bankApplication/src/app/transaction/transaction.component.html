@@ -1,7 +1,10 @@
-<div class="h1"><h1>Total Transaction</h1></div>
 <div class="body">
-  
+   
+  <button type="button" class="btn-float-left" (click)="home()">Home Page</button>
+  <button type="button" class="btn-float-right" (click)="logout()">Logout</button>
+  <br>  
   <div class="container">
+    <h1><strong> Total Transaction </strong></h1>
     <div class="table">
     <table border="1">
       <thead class="thead-dark">
@@ -20,19 +23,6 @@
       </tbody>
     </table>
     <br>
-    <div class="foot">
-      <input
-      type="button"
-      value="Home Page"
-      (click)="home()">
-      <br>
-      <div>
-        <input
-        type="button"
-        value="Logout"
-        (click)="logout()">
-    </div>
-    </div>
   </div>
   </div>
 </div>

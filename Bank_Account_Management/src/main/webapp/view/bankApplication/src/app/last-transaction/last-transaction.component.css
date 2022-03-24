@@ -1,5 +1,7 @@
 h1 {
-	color: #3f16b1;
+	color: #010103;
+	text-shadow: 2px 3px 4px rgb(81, 189, 231);
+	padding-bottom: 10px;
 }
 table
 {
@@ -8,15 +10,37 @@ table
 table, th, td {
 	justify-content: center;
 	width: 40%;
-	background-color:rgb(48, 214, 236);
+	background-color:rgb(88, 198, 212);
 	border: 1px solid black;
 }
 .body{
-	background-image:url(https://5.imimg.com/data5/EK/HD/MY-25455024/banking-management-system-250x250.jpg);
+	background-image:url(https://www.higheredjobs.com/images/articles/article_1385_1.jpg);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
 .container
 {
+	padding-top: 80px;
+	padding-bottom: 240px;
 	text-align: center;
+}
+.btn-float-left
+{
+	padding: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	border-radius: 20px;
+	float: left;	
+}
+.btn-float-right{
+	padding: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	border-radius: 20px;
+	float: right;
+}
+button:hover 
+{
+    background-color: rgb(108, 106, 226);
+	border-color: aliceblue;
 }

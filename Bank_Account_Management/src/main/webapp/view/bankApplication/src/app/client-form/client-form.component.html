@@ -4,17 +4,21 @@
   <div class="container">
     <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
       
-        <label style="color: orange;" for="firstname"><b>Firstname</b></label>
+      <label style="color: orange;" for="firstname"><b>Firstname</b></label>
         <input type="text" [(ngModel)]="client.firstname" class="form-control" id="firstname" name="firstname" placeholder="Enter your firstname"
           required #firstname="ngModel">
       <div [hidden]="!firstname.pristine" class="alert-danger">Firstname is required</div>
+      
       <br>
-        <label style="color: orange;" for="lastname"><b>Lastname</b></label>
+      
+      <label style="color: orange;" for="lastname"><b>Lastname</b></label>
         <input type="text" [(ngModel)]="client.lastname" class="form-control" id="lastname" name="lastname" placeholder="Enter your lastname"
           required #lastname="ngModel">
       <div [hidden]="!lastname.pristine" class="alert-danger">Lastname is required</div>
+      
       <br>
-        <label style="color: orange;" for="email"><b>Email</b></label>
+      
+      <label style="color: orange;" for="email"><b>Email</b></label>
         <input type="text" [(ngModel)]="client.email" class="form-control" id="email" name="email" placeholder="Enter your email address"
           required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel">
         <div [hidden]="!email.pristine" class="alert-danger">Email is required</div>
@@ -22,46 +26,60 @@
           <div style="color: rgb(236, 226, 226);" *ngIf="email.errors?.['required']"> <b>Email is required</b></div>
         <div style="color: rgb(236, 226, 226);" *ngIf="email.errors?.['pattern']"><b>Enter the valid Email</b></div>
       </div>
-        <br>
-        <label style="color: orange;" for="clientaddress"><b>Address</b></label>
+        
+      <br>
+      
+      <label style="color: orange;" for="clientaddress"><b>Address</b></label>
         <input type="text" [(ngModel)]="client.clientaddress" class="form-control" id="clientaddress" name="clientaddress" placeholder="Enter your address"
           required #clientaddress="ngModel">
         <div [hidden]="!clientaddress.pristine" class="alert-danger">Address is required</div>
+      
       <br>
-        <label style="color: orange" for="username"><b>Username</b></label>
+      
+      <label style="color: orange" for="username"><b>Username</b></label>
         <input type="text" [(ngModel)]="client.username" class="form-control" id="username" name="username" placeholder="Enter your username"
           required #username="ngModel">
       <div [hidden]="!username.pristine" class="alert-danger">Username is required</div>
+      
       <br>
-        <label style="color: orange;" for="password"><b>Password</b></label>
-        <input type="password" [(ngModel)]="client.password" class="form-control" id="password" name="password" placeholder=""
+      
+      <label style="color: orange;" for="password"><b>Password</b></label>
+        <input type="password" [(ngModel)]="client.password" class="form-control" id="password" name="password" placeholder="Enter Your Password"
           required #password="ngModel">
       <div [hidden]="!password.pristine" class="alert-danger">Password is required</div>
+      
       <br>
-        <label style="color: orange;" for="confirmPassword"><b>Confirm Password</b></label>
-        <input type="password" [(ngModel)]="confirmPassword" class="form-control" id="confirmPassword" name="confirmPassword" placeholder=""
+      
+      <label style="color: orange;" for="confirmPassword"><b>Confirm Password</b></label>
+        <input type="password" [(ngModel)]="confirmPassword" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Enter Your Password Again"
           required #password="ngModel">
         <div style="background-color: #fa1515" class="err">{{missmatch}}</div>
       <div [hidden]="!password.pristine" class="alert-danger">Confirm Password is required</div>
+      
       <br>
-        <label style="color: orange;" for="clientaccount"><b>Account Number</b></label>
+      
+      <label style="color: orange;" for="clientaccount"><b>Account Number</b></label>
         <input type="number" [(ngModel)]="client.clientaccount" class="form-control" id="clientaccount" name="clientaccount" placeholder="Enter the  Account Number"
           required #clientaccount="ngModel">
       <div [hidden]="!clientaccount.pristine" class="alert-danger">Account Number is required</div>
+      
       <br>
-        <label style="color: orange;" for="mobileno"><b>Mobile Number</b></label>
+      
+      <label style="color: orange;" for="mobileno"><b>Mobile Number</b></label>
         <input type="number" [(ngModel)]="client.mobileno" class="form-control" id="mobileno" name="mobileno" placeholder="Enter your mobile number"
           required pattern="^((\\+91-?)|0)?[0-9]{10}$" #mobileno="ngModel">
       <div [hidden]="!mobileno.pristine" class="alert-danger">Mobile number is required</div>
       <div *ngIf="email.invalid &&(mobileno.dirty|| mobileno.touched)" class="alert">
-        <div style="color: rgb(236, 226, 226);" *ngIf="mobileno.errors?.['required']"> <b>Mobile number is required</b></div>
+      <div style="color: rgb(236, 226, 226);" *ngIf="mobileno.errors?.['required']"> <b>Mobile number is required</b></div>
       <div style="color: rgb(236, 226, 226);" *ngIf="mobileno.errors?.['pattern']"><b>Enter the valid Number</b></div>
     </div>
-      <br>
-      <div style="background-color: #fa1515" class="err">{{errormsg}}</div>
+      
+    <br>
+    
+    <div style="background-color: #fa1515" class="err">{{errormsg}}</div>
       <button type="submit" [disabled]="!clientForm.form.valid" class="btn btn-info">Submit</button>
       <button type="reset"> Reset</button>
-      <button (click)="gotoLogInPage()"> Back to login</button>
+      <button (click)="gotoLogInPage()">Login</button>
     </form>
   </div>
 </fieldset>

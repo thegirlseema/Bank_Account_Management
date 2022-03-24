@@ -21,7 +21,7 @@
 h1 {
 	text-align: center;
 	text-transform: uppercase;
-	text-shadow: 2px 2px 5px rgb(64, 165, 233);
+	text-shadow: 4px 2px 5px rgb(64, 165, 233);
 	color: rgb(34, 46, 209);
 	font-weight: initial;
 	margin: 0;
@@ -63,12 +63,13 @@ input {
 }
 
 .container {
-	background-color: #fff;
+	background-color: rgb(241, 241, 241);
 	border-radius: 10px;
   	box-shadow: 10px 20px 40px rgba(36, 193, 221, 0.25), 0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
 	width: 360px;
+	padding: 5px;
 	max-width: 100%;
 	min-height: 60%;
 }

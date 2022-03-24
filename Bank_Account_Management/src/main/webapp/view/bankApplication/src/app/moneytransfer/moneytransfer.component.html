@@ -1,6 +1,11 @@
 <div class="body">
+      
+  <button type="button" class="btn-float-left" (click)="gotoHomePage()">Home Page</button>
+  <button type="button" class="btn-float-right" (click)="logout()">Logout</button>
+  <br>
+  <br>
+  <br>
       <div class="container">
-         <div class="form">
          <h1>TRANSACTION</h1>
          <h3>Deposit</h3>
          <label>Enter the amount to deposit</label>
@@ -8,7 +13,7 @@
                <input type="number"  name="amount" required [(ngModel)]="damount"/>
          </div>
          <br>
-         <button (click)="onDeposit()" >Submit</button>
+         <button id="submit" (click)="onDeposit()" >Submit</button>
          <br>
          <br>
          <h3>Withdraw</h3>
@@ -16,16 +21,7 @@
          <div>
                <input type="number"  name="amount" required  [(ngModel)]="wamount"/>
          </div><br>
-         <button (click)="onWithdraw()" >Submit</button>
-         <br><br>
-         <button (click)="gotoHomePage()" >Home Page</button>
-         <br>
-         <div>
-            <input
-            type="button"
-            value="Logout"
-            (click)="logout()">
-        </div>
+         <button id="submit" (click)="onWithdraw()" >Submit</button>
+         
          </div>
       </div>
-   </div>
