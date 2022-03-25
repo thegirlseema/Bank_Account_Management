@@ -59,3 +59,15 @@ input[type="button"]:hover
    background-color: rgb(46, 139, 192);
 	border-color: aliceblue;
 }
+.btn-float-right{
+	padding: 10px;
+	margin-top: 10px;
+	 
+	border-radius: 20px;
+	float: right;
+}
+button:hover 
+{
+    background-color: rgb(236, 23, 16);
+	border-color: aliceblue;
+}

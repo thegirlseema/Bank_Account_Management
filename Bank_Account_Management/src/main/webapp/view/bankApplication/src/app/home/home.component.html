@@ -1,7 +1,15 @@
 
 <div class="body">
+  
+            <!--div class="btn-float-right">
+                <input
+                type="button"
+                value="Logout"
+                (click)="logout()">
+            </div-->
+            
   <div class="container">
-    
+    <button type="button" class="btn-float-right" (click)="logout()">Logout</button>
     <div class="card-body">
       <h1 class="header">Home page</h1>
         <div class="box">
@@ -36,13 +44,7 @@
             (click)="totalTransaction()">
           </div><br>
           
-            
-            <div>
-                <input
-                type="button"
-                value="Logout"
-                (click)="logout()">
-            </div><br>
+            <br>
         </div>
     </div>
     <br>
