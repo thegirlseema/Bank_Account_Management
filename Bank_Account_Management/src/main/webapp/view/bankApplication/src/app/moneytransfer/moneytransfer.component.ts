@@ -16,6 +16,8 @@ export class MoneyTransaction implements OnInit{
    damount:number=0;
    wamount:number=0;
    login: Login;
+   withdrawErr: string='';
+   depositErr:string='';
     private client:Client ;
      constructor(private route: ActivatedRoute, private router: Router, private clientService: ClientService) {
 	this.client=new Client(0,'','','',0,0,'',0,0,'',0,'',0,'');
@@ -29,28 +31,43 @@ export class MoneyTransaction implements OnInit{
       this.login.username = String(parameters['username']);
       this.login.password = String(parameters['password']);
 
-      this.clientService.login(this.login).subscribe(data =>{this.client=data,this.setClient(this.client.clientid)});
+      this.clientService.login(this.login).subscribe(data =>{this.client=data,this.setClient(this.client)});
 
      
     });
     
   }
-    setClient(clientid:number)
-    {
-      this.client.clientid=clientid;
-    }
+  setClient(client:Client)
+  {
+    this.client=client;
+  }
     onDeposit() {
-      alert("Deposit Successfully");
-    this.clientService.moneydeposit(this.client.clientid,this.damount).subscribe(result => {this.gotoHomePage();
-    });
+      this.depositErr='';
+        if(this.damount>0)
+        {
+        alert("Deposit Successfully");
+        this.clientService.moneydeposit(this.client.clientid,this.damount).subscribe(result => {this.gotoHomePage();
+      });
+    }
+    else{
+        this.depositErr="Invalid amount";
+    }
+    
+
   }
   gotoHomePage(){
     
     this.router.navigate([`home/${this.login.username}/${this.login.password}`]);
   }   
   onWithdraw() {
+    if(((this.client.accountbalance-1000)>this.wamount) && (this.wamount>0)){
+      this.withdrawErr="";
       alert("Withdraw Successfully");
     this.clientService.moneywithdraw(this.client.clientid,this.wamount).subscribe(result =>{this.gotoHomePage()});
+  }
+  else{
+    this.withdrawErr="Invalid amount";
+  }
   }
   logout() {
     this.router.navigate(['/login']);

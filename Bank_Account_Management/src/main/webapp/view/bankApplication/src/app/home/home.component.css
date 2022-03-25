@@ -1,73 +1,75 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-.body
+.btn-float-right{
+	padding: 10px;
+	margin-top: 10px;
+	margin-right: 10px;	 
+	border-radius: 15px;
+	float: right;
+}
+button:hover 
 {
-    background-image: url(https://blog.avast.com/hubfs/avast-blog/Avast-Hub-History-of-Cyber-Security-Images-Cover.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: 'Montserrat', sans-serif;
-	height: 90vh;
+    background-color: rgb(236, 68, 26);
+	border-color: aliceblue;
 }
 
 h1 {
-    background-color: darkcyan;
+    background: transparent;
 	text-align: center;
 	text-transform: uppercase;
 	text-shadow: 2px 2px 5px rgb(64, 165, 233);
 	color: rgb(34, 46, 209);
 	font-weight: initial;
-	margin: 0;
-    padding-bottom: 20px;
-    padding-top: 10px;
+	margin-bottom: 30px;
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+.wrapper{
+    float: right;
+    margin: auto;
+}
+header{
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(https://blog.avast.com/hubfs/avast-blog/Avast-Hub-History-of-Cyber-Security-Images-Cover.jpg);
+    height: 90vh;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.nav-area{
+    float: right;
+    list-style: none;
+    margin-top: 10px;
+}
+.welcome-text{
+    position: absolute;
+	box-shadow: 10px 20px 40px rgba(39, 175, 206, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+    width: 300px;
+    height: auto;
+    margin: 3% 35%;
+    text-align: center;
+}
+.welcome-text h1{
+    text-align: center;
+    color: #fff;
+	background-color: rgb(27, 109, 177);
+    text-transform: uppercase;
+    font-size: 35px;
+}
+.welcome-text input{
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-top: 10px;
+	border-radius: 16px;
+    display: inline-block;
+    color: rgb(22, 6, 6);
 }
 
-.container
+.welcome-text input:hover
 {
-    background: transparent;
-	border-radius: 10px;
-  	box-shadow: 10px 20px 40px rgba(227, 236, 238, 0.25), 0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-	overflow: hidden;
-	width: 360px;
-	max-width: 80%;
-	min-height: 40%;
-}
-.box
-{
-    padding-top: 20px;
-}
-input
-{
-    width: 60%;
-    height: 50%;
-    justify-content: center;
-    padding: 12px 12px;
-	
-}
-
-input[type="button"]
-{
-    margin-left: 80px;
-	border-radius: 15px;
+	background-color: rgb(46, 139, 192);
+	border-color: aliceblue;
     
-}
-
-input[type="button"]:hover
-{
-   background-color: rgb(46, 139, 192);
-	border-color: aliceblue;
-}
-.btn-float-right{
-	padding: 10px;
-	margin-top: 10px;
-	 
-	border-radius: 20px;
-	float: right;
-}
-button:hover 
-{
-    background-color: rgb(236, 23, 16);
-	border-color: aliceblue;
 }
