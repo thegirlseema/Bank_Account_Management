@@ -69,7 +69,7 @@
         <input type="number" [(ngModel)]="client.mobileno" class="form-control" id="mobileno" name="mobileno" placeholder="Enter your mobile number"
           required pattern="^((\\+91-?)|0)?[0-9]{10}$" #mobileno="ngModel">
       <div [hidden]="!mobileno.pristine" class="alert-danger">Mobile number is required</div>
-      <div *ngIf="email.invalid &&(mobileno.dirty|| mobileno.touched)" class="alert">
+      <div *ngIf="mobileno.invalid &&(mobileno.dirty|| mobileno.touched)" class="alert">
       <div style="color: rgb(236, 226, 226);" *ngIf="mobileno.errors?.['required']"> <b>Mobile number is required</b></div>
       <div style="color: rgb(236, 226, 226);" *ngIf="mobileno.errors?.['pattern']"><b>Enter the valid Number</b></div>
     </div>

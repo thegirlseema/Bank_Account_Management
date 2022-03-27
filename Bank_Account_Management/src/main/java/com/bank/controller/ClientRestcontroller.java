@@ -23,10 +23,7 @@ import com.bank.client.ClientTransaction;
 import com.bank.service.ClientService;
 /*
  *Rest Controller Class
- *Register New Client 
- *Login with User name and password
- *Deposit and Withdraw
- *View Total Transaction
+ *URLs are mapped for Different operations
  */
 @RestController
 @CrossOrigin(origins = "http://localhost:4205")
@@ -35,12 +32,6 @@ public class ClientRestcontroller {
 	@Autowired
 	private ClientService service;
 	
-	
-	@GetMapping(path="/welcome", produces = "application/json")
-    public String welcomeMethod() 
-    {
-        return "Welcome to Bank Account Management System";
-    }
 	/*
 	 * Login with User-name and Password
 	 */

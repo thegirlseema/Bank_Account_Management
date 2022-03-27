@@ -1,7 +1,7 @@
 .body
 {
 	height: 100%;
-	background-image: url(https://th.bing.com/th/id/OIP.C0ECGbpspHBAVbNi_pqtRgHaFj?pid=ImgDet&w=800&h=600&rs=1);
+	background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2019/11/12193702/career-in-Bank-Management-1.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
@@ -26,14 +26,14 @@ button:hover
 	border-color: aliceblue;
 }
 h1 {
-	color: rgb(10, 6, 1);
+	color: rgb(255, 255, 255);
 	text-shadow: 5px 3px 6px rgb(110, 72, 0);
 	
 }
 .container
 {
 	padding-top: 60px;
-	padding-bottom: 180px;
+	padding-bottom: 280px;
 }
 
 .container h1
