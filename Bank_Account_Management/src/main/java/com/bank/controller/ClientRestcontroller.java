@@ -40,7 +40,7 @@ public class ClientRestcontroller {
     public Client validation(@RequestParam String username,@RequestParam String password) throws Exception {
 		System.out.println(username+" "+password);
 		Client client=service.validate(username, password);
-		if(client!=null && client.getPassword().equals(password) )
+		if(client!=null && service.decrypt(client.getPassword()).equals(password) )
 		{
 			return client;
 		}
