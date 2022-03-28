@@ -24,11 +24,10 @@ insert into TRANSACTIONDETAIL values(25,'alex123','23-02-2022 15:01:13','Deposit
 insert into TRANSACTIONDETAIL values(26,'jack123','23-02-2022 11:11:43','Deposit',500,15);
 insert into TRANSACTIONDETAIL values(27,'rob123','24-02-2022 22:15:02','Deposit',2000,10);
 insert into TRANSACTIONDETAIL values(28,'alex123','24-02-2022 15:01:45','Deposit',1700,12);
-insert into TRANSACTIONDETAIL values(50,'sanjay123','16-02-2022 13:11:53','Withdraw',1000,87);
-insert into TRANSACTIONDETAIL values(51,'sanjay123','18-02-2022 18:01:45','Deposit',1500,87);
-insert into TRANSACTIONDETAIL values(52,'sanjay123','20-02-2022 18:11:53','Withdraw',1500,87);
-insert into TRANSACTIONDETAIL values(53,'sanjay123','21-02-2022 16:01:45','Deposit',800,87);
-insert into TRANSACTIONDETAIL values(54,'sanjay123','21-02-2022 10:05:15','Withdraw',1200,87);
-insert into TRANSACTIONDETAIL values(55,'sanjay123','23-02-2022 15:01:13','Deposit',1000,87);
-insert into TRANSACTIONDETAIL values(56,'sanjay123','24-02-2022 15:01:45','Deposit',1700,87);
-
+insert into TRANSACTIONDETAIL values(50,'sanjay123','28-03-2022 13:11:53','Withdraw',1000,87);
+insert into TRANSACTIONDETAIL values(51,'sanjay123','28-03-2022 18:01:45','Deposit',1500,87);
+insert into TRANSACTIONDETAIL values(52,'sanjay123','28-03-2022 18:11:53','Withdraw',1500,87);
+insert into TRANSACTIONDETAIL values(53,'sanjay123','28-03-2022 16:01:45','Deposit',800,87);
+insert into TRANSACTIONDETAIL values(54,'sanjay123','28-03-2022 10:05:15','Withdraw',1200,87);
+insert into TRANSACTIONDETAIL values(55,'sanjay123','28-03-2022 15:01:13','Deposit',1000,87);
+insert into TRANSACTIONDETAIL values(56,'sanjay123','28-03-2022 15:01:45','Deposit',1700,87);
