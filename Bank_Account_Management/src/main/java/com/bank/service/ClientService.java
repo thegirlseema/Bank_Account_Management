@@ -1,6 +1,5 @@
 package com.bank.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.text.SimpleDateFormat;
@@ -21,6 +20,7 @@ import com.bank.exception.ClientNotFoundException;
  * ClientService Class With Annotation 
  * 
  */
+
 @Service
 public class ClientService {
 	@Autowired
@@ -29,12 +29,22 @@ public class ClientService {
 	@Autowired
 	private TransactionRepository transactionRepository;
 	
+
+	/* 
+	 * findbyuser method is used for finding user by using username 
+	 */
 	
 	@Transactional
 	public Client findByUser(String username){
 		Client clientList=clientRepository.findByUsername(username);
 		 return clientList;
 	}
+	
+
+	/* 
+	 * newClient method is used for adding new user with proper validation  
+	 */
+	
 	@Transactional
 	public boolean newClient(Client client){
 		String username=client.getUsername();
@@ -63,6 +73,10 @@ public class ClientService {
 			return true;
 	}
 	
+	/* 
+	 * validate method is used for validation of username and password 
+	 * 
+	 */
 	
 	@Transactional
 	public Client validate(String user, String password) throws Exception {
@@ -82,11 +96,23 @@ public class ClientService {
 		return c;
 	}
 	
+
+	/* 
+	 * totaltransaction method is used for fetching the transaction detail using client id 
+	 * 
+	 */
+	
 	@Transactional
 	public List<ClientTransaction> totalTransaction(Client obj){
 		long id=obj.getClientid();
 		return transactionRepository.findByClientid(id);
 	}
+	
+
+	/* 
+	 * withdraw method is used for withdraw using client id and amount to be withdrawn
+	 * 
+	 */
 	
 	@Transactional
 	public Client withdraw(long amount,long id)
@@ -102,6 +128,12 @@ public class ClientService {
 		transactionRepository.save(transobj);
 		return obj1;
 	}
+	
+
+	/* 
+	 * deposit method is used for deposit using client id and amount to be deposit
+	 * 
+	 */
 	
 	@Transactional
 	public Client deposit(long amount,long id)
