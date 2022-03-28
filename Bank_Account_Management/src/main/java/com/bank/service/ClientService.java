@@ -14,8 +14,13 @@ import com.bank.client.ClientTransaction;
 import com.bank.clientbo.ClientBO;
 import com.bank.clientdao.ClientRepository;
 import com.bank.clientdao.TransactionRepository;
-import com.bank.notfoundexception.ClientAlreadyExist;
-import com.bank.notfoundexception.ClientNotFoundException;
+import com.bank.exception.ClientAlreadyExist;
+import com.bank.exception.ClientNotFoundException;
+
+/*
+ * ClientService Class With Annotation 
+ * 
+ */
 @Service
 public class ClientService {
 	@Autowired
@@ -24,12 +29,7 @@ public class ClientService {
 	@Autowired
 	private TransactionRepository transactionRepository;
 	
-	@Transactional
-	public List<Client> allClient(){
-		List<Client> clientList=new ArrayList<>();
-		 clientRepository.findAll().forEach(client -> clientList.add(client));
-		 return clientList;
-	}
+	
 	@Transactional
 	public Client findByUser(String username){
 		Client clientList=clientRepository.findByUsername(username);
@@ -98,7 +98,6 @@ public class ClientService {
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
 		Date date=new Date();
 		String sdate=formatter1.format(date);
-		//String tdate, String username, String type, long amount, long clientid
 		ClientTransaction transobj=new ClientTransaction(sdate,obj.getUsername(),"Withdraw",amount,obj.getClientid());
 		transactionRepository.save(transobj);
 		return obj1;
@@ -114,7 +113,6 @@ public class ClientService {
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
 		Date date=new Date();
 		String sdate=formatter1.format(date);
-		//String tdate, String username, String type, long amount, long clientid
 		ClientTransaction transobj=new ClientTransaction(sdate,obj.getUsername(),"Deposit",amount,obj.getClientid());
 		transactionRepository.save(transobj);
 		return obj1;

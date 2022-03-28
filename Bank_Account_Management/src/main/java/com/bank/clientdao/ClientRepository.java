@@ -4,7 +4,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.bank.client.Client;
-
+/*
+ * ClientRepository do the CRUD operation. 
+ */
 @Repository
 public interface ClientRepository extends CrudRepository<Client, Long>
 {

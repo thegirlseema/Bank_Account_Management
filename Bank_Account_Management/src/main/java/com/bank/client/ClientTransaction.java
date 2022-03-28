@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * ClientTransaction Entity Class With Annotation 
+ * To Define The Table Structure Of ClientTransaction Database table
+ */
 @Entity
 @Table(name = "TRANSACTIONDETAIL")
 public class ClientTransaction{
@@ -14,34 +18,48 @@ public class ClientTransaction{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long tid;
-
+	
+	//Mapping to the column name =>TDATE
 	@Column(name="TDATE")
 	private String tdate;
-
+	
+	//Mapping to the column name =>USERNAME
 	@Column(name="USERNAME")
 	private String username;
 	
+	//Mapping to the column name =>TYPE
 	@Column(name="TYPE")
 	private String type;
 	
+	//Mapping to the column name =>AMOUNT
 	@Column(name="AMOUNT")
 	private long amount;
 	
+	//Mapping to the column name =>CLIENTID
 	@Column(name="CLIENTID")
 	private long clientid;
 	
+	/*
+	 * Non Argument Constructor
+	 */
 	public ClientTransaction() {
 		
 	}
+	
+	/*
+	 * Parameterized Constructor 
+	 */
 	public ClientTransaction(String tdate, String username, String type, long amount, long clientid) {
-		super();
+		
 		this.tdate = tdate;
 		this.username = username;
 		this.type = type;
 		this.amount = amount;
 		this.clientid = clientid;
 	}
-
+	/*
+	 * Getters and setters
+	 */
 	public long getTid() {
 		return tid;
 	}

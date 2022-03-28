@@ -4,9 +4,12 @@ import org.springframework.stereotype.Component;
 
 import com.bank.client.Client;
 import com.bank.clientdao.TransactionRepository;
-
+/*
+ * ClientBO Class do the logic functionality
+ */
 @Component
 public class ClientBO {
+	//Changing the current balance by subtraction with withdraw amount
 	public Client withdraw(long amount,Client obj)
 	{
 		long balance=obj.getAccountbalance();
@@ -15,6 +18,7 @@ public class ClientBO {
 		obj.setWithdraw(amount);
 		return obj;
 	}
+	//Changing the current balance by adding with deposit amount
 	public Client deposit(long amount,Client obj)
 	{
 		long balance=obj.getAccountbalance();
@@ -24,17 +28,3 @@ public class ClientBO {
 		return obj;
 	}
 }
-/*
-{
-"clientid": 10,
-"clientname": "Robert",
-"username": "rob123",
-"password": "1234",
-"accountbalance": 6300,
-"outstandingbalance": 1000,
-"doj": "12/07/2021",
-"withdraw": 100,
-"deposit": 1000,
-"clientaccount": 501234
-}
-*/

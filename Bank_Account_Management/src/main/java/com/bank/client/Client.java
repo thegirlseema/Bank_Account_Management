@@ -9,7 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+/*
+ * Client Entity Class With Annotation 
+ * To Define The Table Structure Of Client Database table
+ */
 @Entity
 @Table(name="CLIENTDET")
 public class Client implements Serializable{
@@ -18,49 +21,66 @@ public class Client implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long clientid;
 	
+	//Mapping to the column name =>FIRSTNAME
 	@Column(name="FIRSTNAME")
 	private String firstname;
 	
+	//Mapping to the column name =>LASTNAME
 	@Column(name="LASTNAME")
 	private String lastname;
 	
+	//Mapping to the column name =>USERNAME
 	@Column(name="USERNAME")
 	private String username;
 	
+	//Mapping to the column name =>PASSWORD
 	@Column(name="PASSWORD")
 	private String password;
 	
+	//Mapping to the column name =>ACCOUNTBALANCE
 	@Column(name="ACCOUNTBALANCE")
     private long accountbalance;
 	
+	//Mapping to the column name =>OUTSTANDINGBALANCE
 	@Column(name="OUTSTANDINGBALANCE")
     private long outstandingbalance;
 	
+	//Mapping to the column name =>DOJ
 	@Column(name="DOJ")
 	private String doj;
 	
+	//Mapping to the column name =>WITHDRAW
 	@Column(name="WITHDRAW")
 	private long withdraw;
 	
+	//Mapping to the column name =>DEPOSIT
 	@Column(name="DEPOSIT")
 	private long deposit;
 	
+	//Mapping to the column name =>ACCOUNTNUMBER
 	@Column(name="ACCOUNTNUMBER")
 	private long clientaccount ;
 	
+	//Mapping to the column name =>EMAIL
 	@Column(name="EMAIL")
 	private String email ;
 	
+	//Mapping to the column name =>MOBILENO
 	@Column(name="MOBILENO")
 	private long mobileno ;
 	
+	//Mapping to the column name =>CLIENTADDRESS
 	@Column(name="CLIENTADDRESS")
 	private String clientaddress ;
-	
+	/*
+	 * Non Argument Constructor
+	 */
 	public Client() {
 		
 	}
-
+	/*
+	 * Parameterized Constructor 
+	 */
 	
 	public Client(long clientid, String firstname, String lastname, String username, String password,
 			long accountbalance, long outstandingbalance, String doj, long withdraw, long deposit, long clientaccount,
@@ -82,7 +102,9 @@ public class Client implements Serializable{
 		this.clientaddress = clientaddress;
 	}
 	
-
+	/*
+	 * Getters and Setters
+	 */
 	public long getClientid() {
 		return clientid;
 	}
@@ -222,11 +244,5 @@ public class Client implements Serializable{
 		this.clientaddress = clientaddress;
 	}
 
-
-	@Override
-	public String toString() {
-	return "Name:"+this.firstname+" "+this.lastname+"\nUser name:"+this.username+"\nAccountNumber:"+this.clientaccount
-			+"\nCurrent Balance:"+this.accountbalance;
-	}
 	
 	}
