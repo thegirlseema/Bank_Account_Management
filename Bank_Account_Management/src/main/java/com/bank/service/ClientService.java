@@ -85,6 +85,10 @@ public class ClientService {
 			return true;
 	}
 	
+	/* 
+	 * validate method is used for validation of username and password 
+	 * 
+	 */
 	
 	/* 
 	 * validate method is used for validation of username and password 
