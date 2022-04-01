@@ -96,6 +96,12 @@ public class ClientService {
 			return true;
 	}
 	
+	@Transactional
+	public boolean updateClient(Client client){
+		clientRepository.save(client);
+		return true;
+	}
+	
 	
 	/* 
 	 * validate method is used for validation of username and password 
@@ -136,6 +142,11 @@ public class ClientService {
 			return true;
 		}
 		return false;
+	}
+	
+	@Transactional
+	public Client getClient(long accno)  {
+		return clientRepository.findByClientaccount(accno);
 	}
 	
 

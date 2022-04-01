@@ -35,6 +35,8 @@
               <td>{{ client.email }}</td>
               <td>{{ client.mobileno }}</td>
               <td>{{ client.clientaddress }}</td>
+              <td><button (click)="updateClient(client.clientaccount)">update</button></td>
+              <td><button (click)="deleteClient(client.clientaccount)">delete</button></td>
             </tr>
           </tbody>
         </table>

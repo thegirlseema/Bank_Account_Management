@@ -1,0 +1,61 @@
+<div class="body">
+  <button type="button" class="btn-float-left" (click)="home()">Home Page</button>
+  <button type="button" class="btn-float-right" (click)="logout()">Logout</button>
+  
+  <br>
+  <div class="container">
+      <div class="heading">
+          <h1>Update Details</h1>
+          <h3>Account Number : {{client.clientaccount}}</h3>
+      </div>
+      
+        <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
+          <label style="color: orange;" for="firstname"><b>Firstname   : </b></label>
+        <input type="text" [(ngModel)]="client.firstname" class="form-control" id="firstname" name="firstname" placeholder="Enter your firstname"
+          required pattern="[a-zA-Z ]*" #firstname="ngModel">
+      <div *ngIf="firstname.invalid &&(firstname.dirty|| firstname.touched)" class="alert">
+        <div style="color: rgb(236, 226, 226);" *ngIf="firstname.errors?.['required']"> <b>Firstname is required</b></div>
+        <div style="color: rgb(236, 226, 226);" *ngIf="firstname.errors?.['pattern']"><b>Alphabets only accept</b></div>
+      </div>
+      <br><br><br>
+      
+      <label style="color: orange;" for="lastname"><b>Lastname   : </b></label>
+        <input type="text" [(ngModel)]="client.lastname" class="form-control" id="lastname" name="lastname" placeholder="Enter your lastname"
+          required pattern="[a-zA-Z ]*" #lastname="ngModel">
+      <div *ngIf="lastname.invalid &&(lastname.dirty|| lastname.touched)" class="alert">
+        <div style="color: rgb(236, 226, 226);" *ngIf="lastname.errors?.['required']"> <b>Lastname is required</b></div>
+        <div style="color: rgb(236, 226, 226);" *ngIf="lastname.errors?.['pattern']"><b>Alphabets only accept</b></div>
+      </div>
+      <br><br><br>
+      
+      <label style="color: orange;" for="email"><b>Email       : </b></label>
+        <input type="text" [(ngModel)]="client.email" class="form-control" id="email" name="email" placeholder="Enter your email address"
+          required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel">
+        <div *ngIf="email.invalid &&(email.dirty|| email.touched)" class="alert">
+          <div style="color: rgb(236, 226, 226);" *ngIf="email.errors?.['required']"> <b>Email is required</b></div>
+        <div style="color: rgb(236, 226, 226);" *ngIf="email.errors?.['pattern']"><b>Enter the valid Email</b></div>
+      </div>
+        
+      <br><br><br>
+      
+      <label style="color: orange;" for="clientaddress"><b>Address    : </b></label>
+        <input type="text" [(ngModel)]="client.clientaddress" class="form-control" id="clientaddress" name="clientaddress" placeholder="Enter your address"
+          required #clientaddress="ngModel">
+          <div *ngIf="clientaddress.invalid &&(clientaddress.dirty|| clientaddress.touched)" class="alert">
+            <div style="color: rgb(236, 226, 226);" *ngIf="clientaddress.errors?.['required']"> <b>Address is required</b></div>
+          
+        </div>
+      <br><br><br>
+      <label style="color: orange;" for="mobileno"><b>Mobile Number: </b></label>
+        <input type="number" [(ngModel)]="client.mobileno" class="form-control" id="mobileno" name="mobileno" placeholder="Enter your mobile number"
+          required pattern="^((\\+91-?)|0)?[0-9]{10}$" #mobileno="ngModel">
+      <div *ngIf="mobileno.invalid &&(mobileno.dirty|| mobileno.touched)" class="alert">
+      <div style="color: rgb(236, 226, 226);" *ngIf="mobileno.errors?.['required']"> <b>Mobile number is required</b></div>
+      <div style="color: rgb(236, 226, 226);" *ngIf="mobileno.errors?.['pattern']"><b>Enter the valid Number</b></div>
+    </div><br><br>
+    <button type="submit" [disabled]="!clientForm.form.valid" class="btn btn-info">Submit</button>
+    <br><br><br>
+        </form>
+      <br>
+  </div>
+</div>

@@ -22,6 +22,8 @@ export class ClientService {
   allclient: string;
   deleteclient: string;
   checkclient: string;
+  updateclient: string;
+  getclient: string;
   
 
   constructor(private http: HttpClient) {
@@ -35,6 +37,8 @@ export class ClientService {
     this.allclient = 'http://localhost:8090/Banking_System/allClient';
     this.deleteclient = 'http://localhost:8090/Banking_System/deleteclient';
     this.checkclient = 'http://localhost:8090/Banking_System/checkclient';
+    this.updateclient = 'http://localhost:8090/Banking_System/updateclient';
+    this.getclient = 'http://localhost:8090/Banking_System/getClient';
   }
 
   public login(val: Login): Observable<Client> {
@@ -61,6 +65,12 @@ export class ClientService {
   }
   public checkClient(accno:number) {
     return this.http.get<boolean>(this.checkclient+"/"+accno,{ headers: this.httpHeaders });
+  }
+  public updateClient(client:Client) {
+    return this.http.post<boolean>(this.updateclient,client,{ headers: this.httpHeaders });
+  }
+  public getClient(accno:number) : Observable<Client>{
+    return this.http.get<Client>(this.getclient+"/"+accno,{ headers: this.httpHeaders });
   }
   public getTransreport(client: Client): Observable<Transaction[]> {
     return this.http.post<Transaction[]>(this.transReport, client, { headers: this.httpHeaders });

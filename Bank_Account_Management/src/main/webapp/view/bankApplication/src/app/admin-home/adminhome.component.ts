@@ -64,7 +64,8 @@ export class AdminHomeComponent implements OnInit{
     this.clientService.checkClient(this.uAccount).subscribe(data =>{console.log(data);
       if(data===true)
       {
-        this.uErr="Client is there";
+      
+        this.router.navigate([`updateclient/${this.uAccount}`]);
       }
       else{
         this.uErr="Invalid Account Number";

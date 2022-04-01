@@ -30,5 +30,20 @@ export class AllClients implements OnInit {
   home(){
     this.router.navigate([`/adminhome`]);
   }
-
+  updateClient(accno:number)
+  {
+    this.router.navigate([`updateclient/${accno}`]);
+  }
+  deleteClient(accno:number){
+    this.clientService.delete(accno).subscribe(data =>{
+      if(data==true)
+      {
+        alert(accno+" Deleted Succusfully");
+        this.clientService.allClient().subscribe(data =>{this.clients=data,this.setClient(this.clients)});
+      }
+      else{
+        
+      }
+    });
+  }
 }

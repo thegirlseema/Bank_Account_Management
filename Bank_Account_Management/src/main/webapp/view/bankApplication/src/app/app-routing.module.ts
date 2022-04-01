@@ -11,6 +11,7 @@ import { LastTransactionComponent } from './last-transaction/last-transaction.co
 
 import { MoneyTransaction } from './moneytransfer/moneytransfer.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { UpdateClient } from './update-client/update-client.component';
 
 const routes: Routes = [
   { path: '',pathMatch:"full", redirectTo:"login"},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'balance/:username/:password', component: ClientBalance},
   {path: 'accountdetails/:username/:password', component: AccountDetails},
   {path: 'adminhome', component: AdminHomeComponent},
-  {path: 'allclient', component: AllClients}
+  {path: 'allclient', component: AllClients},
+  {path: 'updateclient/:accno', component: UpdateClient}
 ];
 
 @NgModule({

@@ -16,6 +16,7 @@ import { ClientBalance } from './client-balance/client-balance.component';
 import { AccountDetails } from './account-details/account-details.component';
 import { AdminHomeComponent } from './admin-home/adminhome.component';
 import { AllClients } from './all-clients/allclient-details.component';
+import { UpdateClient } from './update-client/update-client.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { AllClients } from './all-clients/allclient-details.component';
     ClientBalance,
     AccountDetails,
     AdminHomeComponent,
-    AllClients
+    AllClients,
+    UpdateClient
   ],
   imports: [
     BrowserModule,

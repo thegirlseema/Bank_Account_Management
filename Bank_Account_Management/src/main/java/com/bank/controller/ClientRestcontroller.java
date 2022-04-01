@@ -61,6 +61,12 @@ public class ClientRestcontroller {
 		return service.checkClient(accno);
 	}
 	
+	@GetMapping(value = "/getClient/{accno}")
+	public Client getClient(@PathVariable int accno) throws Exception {
+		System.out.println("Accno==>"+accno);
+		return service.getClient(accno);
+	}
+	
 	
 	@PostMapping(path="/validatelogin", produces = "application/json")
     public Client loginValidation(@RequestParam String username,@RequestParam String password) throws Exception {
@@ -109,6 +115,13 @@ public class ClientRestcontroller {
 	@PostMapping(path="/registor",  consumes = "application/json")
     public boolean newClient(@RequestBody Client client) throws Exception {
 		boolean status=service.newClient(client);
+        return status;
+    }
+	
+	@PostMapping(path="/updateclient",  consumes = "application/json")
+    public boolean updateClient(@RequestBody Client client) throws Exception {
+		System.out.println("Client=>"+client.getUsername());
+		boolean status=service.updateClient(client);
         return status;
     }
 	
