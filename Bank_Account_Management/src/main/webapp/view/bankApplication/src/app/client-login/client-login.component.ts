@@ -27,6 +27,28 @@ export class ClientLoginComponent implements OnInit{
 	return this.client;
   }
   onSubmit() {
+    this.clientService.validatelogin(this.login).subscribe(data => {this.client=data;
+      if(this.client.firstname=="client")
+      {
+        this.router.navigate([`home/${this.login.username}/${this.login.password}`]);
+      }
+      else if(this.client.firstname=="admin")
+      {
+        this.router.navigate([`adminhome`]);
+      }
+      else{
+        this.errormsg="Invalid Username/Password";
+      }
+     
+    });
+    
+  }
+
+  gotoHomepage() {
+    
+  }
+  /*
+  onSubmit() {
     this.clientService.login(this.login).subscribe(data => {this.client=data;
       if(this.client)
       {
@@ -35,21 +57,9 @@ export class ClientLoginComponent implements OnInit{
       else{
         this.errormsg="Invalid Username/Password";
       }
-      /*if(this.client.username==this.login.username && this.login.password==this.login.password)
-      {
-        this.router.navigate([`home/${this.login.username}/${this.login.password}`]);
-      }
-      else
-      {
-        this.errormsg="Invalid Username/Password";
-      }*/
+      
     });
     
-  }
-
-  gotoHomepage() {
-    
-    //this.router.navigate(['/home',{clientid:this.client.clientid}]);
-  }
+  }*/
   
 }

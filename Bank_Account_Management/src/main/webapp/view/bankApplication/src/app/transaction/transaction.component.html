@@ -10,8 +10,9 @@
       <thead class="thead-dark">
         <tr >
           <th scope="col">Transaction Date</th>
-          <th scope="col">Deposit/Withdraw</th>
+          <th scope="col">Transaction</th>
           <th scope="col">Amount</th>
+          <th scope="col">Account No</th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,7 @@
           <td>{{ transaction.tdate }}</td>
           <td>{{ transaction.type }}</td>
           <td>{{ transaction.amount }}</td>
+          <td>{{ transaction.accountno }}</td>
         </tr>
       </tbody>
     </table>

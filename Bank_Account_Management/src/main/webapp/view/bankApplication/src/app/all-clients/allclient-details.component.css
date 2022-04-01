@@ -1,0 +1,58 @@
+.heading {
+	text-align: center;
+	color: #dfe6e9;
+
+}
+
+.btn-float-left
+{
+	padding: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	border-radius: 20px;
+	float: left;	
+}
+.btn-float-right{
+	padding: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	border-radius: 20px;
+	float: right;
+}
+button:hover 
+{
+    background-color: rgb(108, 106, 226);
+	border-color: aliceblue;
+}
+
+tr
+{
+	color: rgb(0, 0, 0);
+}
+
+table, th, td {
+	align-content: center;
+	width: 40%;
+	background-image: radial-gradient(circle, #bee1f8 20%, #00d4ff 80%);
+	border: 1px solid rgb(17, 1, 1);
+}
+.body
+{
+	background-color:yellow;
+	background-image:url("https://cdn.pixabay.com/photo/2016/07/23/04/05/business-1536236_960_720.png");
+	background-size:100% 100%;
+}
+.container
+{
+  position: relative;
+  top: 60%;
+  width: auto;
+  text-align: center;
+  font-size: 18px;
+  padding-top: 50px;
+  padding-bottom: 200px;
+}
+.table
+{
+	margin-left: 20%;
+}

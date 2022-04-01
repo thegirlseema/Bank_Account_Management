@@ -18,9 +18,11 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bank.client.Admin;
 import com.bank.client.Client;
 import com.bank.client.ClientTransaction;
 import com.bank.clientbo.ClientBO;
+import com.bank.clientdao.AdminRepository;
 import com.bank.clientdao.ClientRepository;
 import com.bank.clientdao.TransactionRepository;
 import com.bank.exception.ClientAlreadyExist;
@@ -39,6 +41,9 @@ public class ClientService {
 	@Autowired
 	private TransactionRepository transactionRepository;
 	
+	@Autowired
+	private AdminRepository adminRepository;
+	
 
 	/* 
 	 * findbyuser method is used for finding user by using username 
@@ -48,6 +53,12 @@ public class ClientService {
 	public Client findByUser(String username){
 		Client clientList=clientRepository.findByUsername(username);
 		 return clientList;
+	}
+	
+	@Transactional
+	public List<Client> allClient(){
+		List<Client>  clientlist= (List<Client>) clientRepository.findAll();
+		 return clientlist;
 	}
 	
 
@@ -85,14 +96,10 @@ public class ClientService {
 			return true;
 	}
 	
-	/* 
-	 * validate method is used for validation of username and password 
-	 * 
-	 */
 	
 	/* 
 	 * validate method is used for validation of username and password 
-	 * 
+	 * adminValidate
 	 */
 	
 	@Transactional
@@ -114,6 +121,22 @@ public class ClientService {
 		}
 		return c;
 	}
+	@Transactional
+	public Admin adminValidate(String user, String password) throws Exception {
+		System.out.println("Admin Service Class is called");
+		Admin adminObj=adminRepository.findByUsername(user);
+		return adminObj;
+	}
+	
+	@Transactional
+	public boolean checkClient(long accno) throws Exception {
+		System.out.println("-->Account No::"+accno);
+		if(clientRepository.findByClientaccount(accno)!=null)
+		{
+			return true;
+		}
+		return false;
+	}
 	
 
 	/* 
@@ -127,25 +150,21 @@ public class ClientService {
 		return transactionRepository.findByClientid(id);
 	}
 	
-
-	/* 
-	 * withdraw method is used for withdraw using client id and amount to be withdrawn
-	 * 
-	 */
-	
 	@Transactional
-	public Client withdraw(long amount,long id)
-	{
-		ClientBO bo=new ClientBO();
-		Client obj=clientRepository.findByClientid(id);
-		Client obj1=bo.withdraw(amount, obj);
-		clientRepository.save(obj1);
-		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
-		Date date=new Date();
-		String sdate=formatter1.format(date);
-		ClientTransaction transobj=new ClientTransaction(sdate,obj.getUsername(),"Withdraw",amount,obj.getClientid());
-		transactionRepository.save(transobj);
-		return obj1;
+	public boolean deleteClient(long accno){
+		Client clientobj=clientRepository.findByClientaccount(accno);
+		if(clientobj==null)
+		{
+			return false;
+		}
+		List<ClientTransaction> translist=transactionRepository.findByClientid(clientobj.getClientid());
+		if(translist!=null)
+		{
+			transactionRepository.deleteAll(translist);
+		}
+		
+		clientRepository.delete(clientobj);
+		return true;
 	}
 	
 
@@ -155,18 +174,27 @@ public class ClientService {
 	 */
 	
 	@Transactional
-	public Client deposit(long amount,long id)
+	public Client deposit(long amount,long id,long accno)
 	{
+		if(clientRepository.findByClientaccount(accno)==null)
+		{
+			return null;
+		}
 		ClientBO bo=new ClientBO();
-		Client obj=clientRepository.findByClientid(id);
-		Client obj1=bo.deposit(amount, obj);
-		clientRepository.save(obj1);
+		Client sobj=clientRepository.findByClientid(id);
+		Client robj=clientRepository.findByClientaccount(accno);
+		Client senderObj=bo.sender(amount, sobj);
+		Client receiverObj=bo.reciver(amount, robj);
+		clientRepository.save(senderObj);
+		clientRepository.save(receiverObj);
 		SimpleDateFormat formatter1 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss"); 
 		Date date=new Date();
 		String sdate=formatter1.format(date);
-		ClientTransaction transobj=new ClientTransaction(sdate,obj.getUsername(),"Deposit",amount,obj.getClientid());
-		transactionRepository.save(transobj);
-		return obj1;
+		ClientTransaction transobj1=new ClientTransaction(sdate,senderObj.getUsername(),"Transferred",accno,amount,senderObj.getClientid());
+		ClientTransaction transobj2=new ClientTransaction(sdate,receiverObj.getUsername(),"Received",senderObj.getClientaccount(),amount,receiverObj.getClientid());
+		transactionRepository.save(transobj1);
+		transactionRepository.save(transobj2);
+		return senderObj;
 	}
 	/*
 	 * Encryption Method

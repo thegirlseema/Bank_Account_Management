@@ -1,0 +1,59 @@
+<header>
+  <div class="wrapper">
+  <ul class="nav-area">
+  <li><button type="button" class="btn-float-right" (click)="logout()">Logout</button></li>
+  </ul>
+  </div>
+  <div class="welcome-text">
+    <h1 class="header">Home page</h1>
+    <h3 class="header">Admin</h3>     
+    <div>
+      <input
+      type="button"
+      value="All Clients"
+      (click)="allclient()">
+    </div><br>
+    <div>
+      <input
+      type="button"
+      value="Add Client"
+      (click)="addclient()">
+    </div><br>
+    <input
+      type="button"
+      value="Update Client"
+      (click)="enabeupdate()">
+    
+    <div *ngIf="updatestatus" >
+      <form #form2="ngForm" (ngSubmit)="updateClient()">
+        <label for="accno" style="color: rgb(236, 226, 226);" >Enter Account Number</label>
+
+        <input name="accno" required [(ngModel)]="uAccount" type="number"   />
+
+        <input class="button" type="submit" value="Update" />
+      </form>
+      <div style="background-color: #fa1515" class="err">{{uErr}}</div>
+    </div>
+  <br>
+  <br>
+
+    <input
+      type="button"
+      value="Delete Client"
+      (click)="enabedelete()">
+    
+    <div *ngIf="deletestatus" >
+      <form #form2="ngForm" (ngSubmit)="deleteClient()">
+        <label for="accno" style="color: rgb(236, 226, 226);" >Enter Account Number</label>
+
+        <input name="accno" required [(ngModel)]="dAccount" type="number"  id="accno " />
+
+        <input class="button" type="submit" value="Delete" />
+      </form>
+      <div style="background-color: #fa1515" class="err">{{dErr}}</div>
+    </div>
+  <br><br></div><br>
+    <br>
+  
+
+  </header>

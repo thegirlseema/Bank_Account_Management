@@ -27,7 +27,8 @@ export class ClientFormComponent {
       this.clientService.save(this.client).subscribe(result => {console.log(result);
         if(result==true)
         {
-          this.gotoLogInPage();
+          alert("Added Successfully");
+          this.gotoHomePage();
         }
         else
         {
@@ -42,7 +43,7 @@ export class ClientFormComponent {
   }
   
   
-  gotoLogInPage() {
-    this.router.navigate(['/login']);
+  gotoHomePage() {
+    this.router.navigate(['/adminhome']);
   }
 }

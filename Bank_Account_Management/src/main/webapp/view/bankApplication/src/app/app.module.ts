@@ -14,6 +14,8 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { LastTransactionComponent } from './last-transaction/last-transaction.component';
 import { ClientBalance } from './client-balance/client-balance.component';
 import { AccountDetails } from './account-details/account-details.component';
+import { AdminHomeComponent } from './admin-home/adminhome.component';
+import { AllClients } from './all-clients/allclient-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { AccountDetails } from './account-details/account-details.component';
     TransactionComponent,
     LastTransactionComponent,
     ClientBalance,
-    AccountDetails
+    AccountDetails,
+    AdminHomeComponent,
+    AllClients
   ],
   imports: [
     BrowserModule,

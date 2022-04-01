@@ -1,21 +1,27 @@
 <div class="body">
   <fieldset > 
-      <legend style="color: orange; text-align: left;"><h1>Registration Form</h1></legend>
+      <legend style="color: orange; text-align: left;"><h1>New Client Registration Form</h1></legend>
   <div class="container">
     <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
       
       <label style="color: orange;" for="firstname"><b>Firstname</b></label>
         <input type="text" [(ngModel)]="client.firstname" class="form-control" id="firstname" name="firstname" placeholder="Enter your firstname"
-          required #firstname="ngModel">
+          required pattern="[a-zA-Z ]*" #firstname="ngModel">
       <div [hidden]="!firstname.pristine" class="alert-danger">Firstname is required</div>
-      
+      <div *ngIf="firstname.invalid &&(firstname.dirty|| firstname.touched)" class="alert">
+        <div style="color: rgb(236, 226, 226);" *ngIf="firstname.errors?.['required']"> <b>Firstname is required</b></div>
+        <div style="color: rgb(236, 226, 226);" *ngIf="firstname.errors?.['pattern']"><b>Alphabets only accept</b></div>
+      </div>
       <br>
       
       <label style="color: orange;" for="lastname"><b>Lastname</b></label>
         <input type="text" [(ngModel)]="client.lastname" class="form-control" id="lastname" name="lastname" placeholder="Enter your lastname"
-          required #lastname="ngModel">
+          required pattern="[a-zA-Z ]*" #lastname="ngModel">
       <div [hidden]="!lastname.pristine" class="alert-danger">Lastname is required</div>
-      
+      <div *ngIf="lastname.invalid &&(lastname.dirty|| lastname.touched)" class="alert">
+        <div style="color: rgb(236, 226, 226);" *ngIf="lastname.errors?.['required']"> <b>Lastname is required</b></div>
+        <div style="color: rgb(236, 226, 226);" *ngIf="lastname.errors?.['pattern']"><b>Alphabets only accept</b></div>
+      </div>
       <br>
       
       <label style="color: orange;" for="email"><b>Email</b></label>
@@ -79,7 +85,7 @@
     <div style="background-color: #fa1515" class="err">{{errormsg}}</div>
       <button type="submit" [disabled]="!clientForm.form.valid" class="btn btn-info">Submit</button>
       <button type="reset"> Reset</button>
-      <button (click)="gotoLogInPage()">Back to Login</button>
+      <button (click)="gotoHomePage()">Back</button>
     </form>
   </div>
 </fieldset>

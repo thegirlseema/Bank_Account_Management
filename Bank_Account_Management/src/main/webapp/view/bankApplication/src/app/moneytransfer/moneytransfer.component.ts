@@ -13,11 +13,11 @@ import { Transaction } from '../model/transaction';
 })
 export class MoneyTransaction implements OnInit{
   
-   damount:number=0;
-   wamount:number=0;
+   tamount:number=0;
    login: Login;
+   accountno:number=0;
+   accounterr:string='';
    withdrawErr: string='';
-   depositErr:string='';
     private client:Client ;
      constructor(private route: ActivatedRoute, private router: Router, private clientService: ClientService) {
 	this.client=new Client(0,'','','',0,0,'',0,0,'',0,'',0,'');
@@ -41,33 +41,35 @@ export class MoneyTransaction implements OnInit{
   {
     this.client=client;
   }
-    onDeposit() {
-      this.depositErr='';
-        if(this.damount>0)
-        {
-        alert("Deposit Successfully");
-        this.clientService.moneydeposit(this.client.clientid,this.damount).subscribe(result => {this.gotoHomePage();
-      });
-    }
-    else{
-        this.depositErr="Invalid amount";
-    }
-    
 
-  }
   gotoHomePage(){
-    
+    this.withdrawErr="";
+      
     this.router.navigate([`home/${this.login.username}/${this.login.password}`]);
   }   
-  onWithdraw() {
-    if(((this.client.accountbalance-1000)>this.wamount) && (this.wamount>0)){
-      this.withdrawErr="";
-      alert("Withdraw Successfully");
-    this.clientService.moneywithdraw(this.client.clientid,this.wamount).subscribe(result =>{this.gotoHomePage()});
+
+
+  onTransfer() {
+    this.accounterr="";
+    this.withdrawErr="";
+    if(((this.client.accountbalance-1000)>this.tamount) && (this.tamount>0)){
+      
+    this.clientService.moneytransfer(this.client.clientid,this.tamount,this.accountno).subscribe(result =>{this.validate(result)});
   }
   else{
     this.withdrawErr="Invalid amount";
   }
+  }
+  validate(results:Client)
+  {
+    if(results)
+    {
+      alert("Transferred Successfully");
+      this.gotoHomePage();
+    }
+    else{
+      this.accounterr="Wrong Account Number";
+    }
   }
   logout() {
     this.router.navigate(['/login']);

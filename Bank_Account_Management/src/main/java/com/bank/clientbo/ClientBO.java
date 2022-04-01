@@ -10,7 +10,16 @@ import com.bank.clientdao.TransactionRepository;
 @Component
 public class ClientBO {
 	//Changing the current balance by subtraction with withdraw amount
-	public Client withdraw(long amount,Client obj)
+	/*public Client withdraw(long amount,Client obj)
+	{
+		long balance=obj.getAccountbalance();
+		balance=balance-amount;
+		obj.setAccountbalance(balance);
+		obj.setWithdraw(amount);
+		return obj;
+	}*/
+	//Changing the current balance by adding with deposit amount
+	public Client sender(long amount,Client obj)
 	{
 		long balance=obj.getAccountbalance();
 		balance=balance-amount;
@@ -18,8 +27,7 @@ public class ClientBO {
 		obj.setWithdraw(amount);
 		return obj;
 	}
-	//Changing the current balance by adding with deposit amount
-	public Client deposit(long amount,Client obj)
+	public Client reciver(long amount,Client obj)
 	{
 		long balance=obj.getAccountbalance();
 		balance=balance+amount;

@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * To Define The Table Structure Of ClientTransaction Database table
  */
 @Entity
-@Table(name = "TRANSACTIONDETAIL")
+@Table(name = "TRANSACTIONDETAILS")
 public class ClientTransaction{
 
 	@Id
@@ -27,9 +27,11 @@ public class ClientTransaction{
 	@Column(name="USERNAME")
 	private String username;
 	
-	//Mapping to the column name =>TYPE
 	@Column(name="TYPE")
 	private String type;
+	
+	@Column(name="ACCOUNTNO")
+	private long accountno;
 	
 	//Mapping to the column name =>AMOUNT
 	@Column(name="AMOUNT")
@@ -49,11 +51,12 @@ public class ClientTransaction{
 	/*
 	 * Parameterized Constructor 
 	 */
-	public ClientTransaction(String tdate, String username, String type, long amount, long clientid) {
+	public ClientTransaction(String tdate, String username,String type,long accountno, long amount, long clientid) {
 		
 		this.tdate = tdate;
 		this.username = username;
-		this.type = type;
+		this.type=type;
+		this.accountno=accountno;
 		this.amount = amount;
 		this.clientid = clientid;
 	}
@@ -84,12 +87,22 @@ public class ClientTransaction{
 		this.username = username;
 	}
 
+	
+
 	public String getType() {
 		return type;
 	}
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public long getAccountno() {
+		return accountno;
+	}
+
+	public void setAccountno(long accountno) {
+		this.accountno = accountno;
 	}
 
 	public long getAmount() {

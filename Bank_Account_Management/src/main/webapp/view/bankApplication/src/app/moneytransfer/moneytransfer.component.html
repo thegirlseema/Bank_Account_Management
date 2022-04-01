@@ -7,23 +7,26 @@
   <br>
       <div class="container">
          <h1>TRANSACTION</h1>
-         <h3>Deposit</h3>
-         <label>Enter the amount to deposit</label>
+         <h3></h3>
+         <label>Enter the Account Number</label>
+         <br>
          <div>
-               <input type="number"  name="amount" required [(ngModel)]="damount"/>
-         </div>
-         <div style="background-color: #fa1515" class="err">{{depositErr}}</div><br>
-         <br>
-         <button id="submit" (click)="onDeposit()" >Submit</button>
-         <br>
-         <br>
-         <h3>Withdraw</h3>
-         <label>Enter the amount to withdraw</label>
+            <input type="number"  name="accountno" required [(ngModel)]="accountno"/>
+      </div>
+      <br>
+      <br>
+      <label>Enter the Amount</label>
          <div>
-               <input type="number"  name="amount" required  [(ngModel)]="wamount"/>
+               <input type="number"  name="amount" required [(ngModel)]="tamount"/>
          </div>
-         <div style="background-color: #fa1515" class="err">{{withdrawErr}}</div><br>
-         <button id="submit" (click)="onWithdraw()" >Submit</button>
+         <br>
+         
+         <div style="background-color: #fa1515" class="err">{{withdrawErr}}</div>
+         <div style="background-color: #fa1515" class="err">{{accounterr}}</div><br>
+         <br>
+         <button id="submit" (click)="onTransfer()" >Submit</button>
+         <br>
+         <br>
          
          </div>
       </div>

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bank.client.Admin;
 import com.bank.client.Client;
 import com.bank.client.ClientTransaction;
 import com.bank.service.ClientService;
@@ -32,10 +34,16 @@ public class ClientRestcontroller {
 	@Autowired
 	private ClientService service;
 	
+
+	@GetMapping(path="/allClient", produces = "application/json")
+    public List<Client>  findAll() 
+    {
+        return service.allClient();
+    }
+	
 	/*
 	 * Login with User-name and Password
 	 */
-	
 	@PostMapping(path="/login", produces = "application/json")
     public Client validation(@RequestParam String username,@RequestParam String password) throws Exception {
 		System.out.println(username+" "+password);
@@ -46,22 +54,43 @@ public class ClientRestcontroller {
 		}
         return null;
     }
+	
+	@GetMapping(value = "/checkclient/{accno}")
+	public boolean checkClient(@PathVariable int accno) throws Exception {
+		System.out.println("Accno==>"+accno);
+		return service.checkClient(accno);
+	}
+	
+	
+	@PostMapping(path="/validatelogin", produces = "application/json")
+    public Client loginValidation(@RequestParam String username,@RequestParam String password) throws Exception {
+		System.out.println(username+" "+password);
+		Client sclient=service.validate("rob123", password);
+		Client client=service.validate(username, password);
+		if(client!=null && service.decrypt(client.getPassword()).equals(password) )
+		{
+			System.out.println("<---This is client account--->");
+			client.setFirstname("client");
+			return client;
+		}
+		Admin admin=service.adminValidate(username,password); 
+		if(admin!=null && admin.getPassword().equals(password))
+		{
+			System.out.println("<---This is admin account--->");
+			sclient.setClientid(admin.getAdminid());
+			sclient.setFirstname("admin");
+			return sclient;
+		}
+		sclient.setFirstname("null");
+        return sclient;
+    }
 	/*
 	 * Deposit the Amount with client-id
 	 */
-	@PostMapping(path="/deposit/{clientid}/{amount}",  consumes = "application/json",produces = "application/json")
-    public  Client deposit(@PathVariable long clientid,@PathVariable long amount) throws Exception {
+	@PostMapping(path="/transfer/{clientid}/{amount}/{accno}",  consumes = "application/json",produces = "application/json")
+    public  Client deposit(@PathVariable long clientid,@PathVariable long amount,@PathVariable long accno) throws Exception {
 		System.out.println("Deposit class is called");
-		Client obj=service.deposit(amount, clientid);
-		return obj;
-    }
-	/*
-	 * Withdraw the Amount with client-id
-	 */
-	@PostMapping(path="/withdraw/{clientid}/{amount}",  consumes = "application/json",produces = "application/json")
-    public  Client withdraw(@PathVariable long clientid,@PathVariable long amount) throws Exception {
-		System.out.println("Withdraw class is called");
-		Client obj=service.withdraw(amount, clientid);
+		Client obj=service.deposit(amount, clientid,accno);
 		return obj;
     }
 	
@@ -83,6 +112,10 @@ public class ClientRestcontroller {
         return status;
     }
 	
-	
+	@DeleteMapping(value = "/deleteclient/{accno}")
+	public boolean deleteClient(@PathVariable int accno) {
+		
+		return service.deleteClient(accno);
+	}
 	
 }
