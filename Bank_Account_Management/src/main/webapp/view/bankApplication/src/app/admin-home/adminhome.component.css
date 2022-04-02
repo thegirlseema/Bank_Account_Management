@@ -33,12 +33,13 @@ body{
     margin: auto;
 }
 header{
-    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(https://blog.avast.com/hubfs/avast-blog/Avast-Hub-History-of-Cyber-Security-Images-Cover.jpg);
-    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(https://th.bing.com/th/id/R.39de6ac30a4a6155a288db8d2773f331?rik=Gsio8sGYQ7xXJg&riu=http%3a%2f%2fwallpaperswide.com%2fdownload%2fauriga_nebula-wallpaper-1600x1200.jpg&ehk=nqcMlOk5Tz6MkisU%2fY2NrmurlVCVPKSkEeAXMm4M8mQ%3d&risl=&pid=ImgRaw&r=0);
     -webkit-background-size: cover;
-    background-size: cover;
+    background-size: 100% 100%;
+    height: 90vh;
     background-position: center center;
     position: relative;
+    padding-bottom: 15px;
 }
 .nav-area{
     float: right;
@@ -47,18 +48,18 @@ header{
 }
 .welcome-text{
     position: absolute;
-	box-shadow: 10px 20px 40px rgba(39, 175, 206, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+	box-shadow: 5px 20px 70px rgba(95, 193, 215, 0.25), 0 10px 10px rgba(235, 222, 222, 0.22);
     width: 300px;
     height: auto;
-    margin: 3% 35%;
+    margin: 1% 37%;
     text-align: center;
 }
 .welcome-text h1{
     text-align: center;
     color: #fff;
-	background-color: rgb(27, 109, 177);
+	background-color: transparent;
     text-transform: uppercase;
-    font-size: 35px;
+    font-size: 30px;
 }
 .welcome-text input{
     border: 1px solid #fff;

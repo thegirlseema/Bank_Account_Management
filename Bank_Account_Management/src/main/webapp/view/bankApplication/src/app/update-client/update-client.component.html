@@ -53,7 +53,7 @@
       <div style="color: rgb(236, 226, 226);" *ngIf="mobileno.errors?.['required']"> <b>Mobile number is required</b></div>
       <div style="color: rgb(236, 226, 226);" *ngIf="mobileno.errors?.['pattern']"><b>Enter the valid Number</b></div>
     </div><br><br>
-    <button type="submit" [disabled]="!clientForm.form.valid" class="btn btn-info">Submit</button>
+    <button type="submit" [disabled]="!clientForm.form.valid" class="submit">Submit</button>
     <br><br><br>
         </form>
       <br>

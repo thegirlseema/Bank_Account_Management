@@ -1,9 +1,8 @@
 .heading {
-	text-align: center;
-	color: #dfe6e9;
+	text-transform: uppercase;
+	color: #a0d4ea;
 
 }
-
 .btn-float-left
 {
 	padding: 10px;
@@ -19,27 +18,28 @@
 	border-radius: 20px;
 	float: right;
 }
+.submit
+{
+	border-radius: 10px;
+	padding: 8px;
+	margin-left: 100px;
+	background-color: rgb(208, 137, 14);
+}
+
+.submit:hover
+{
+	background-color: rgb(9, 131, 155);
+	border-color: aliceblue;
+
+}
 button:hover 
 {
     background-color: rgb(108, 106, 226);
 	border-color: aliceblue;
 }
-
-tr
-{
-	color: rgb(0, 0, 0);
-}
-
-table, th, td {
-	align-content: center;
-	width: 40%;
-	background-image: radial-gradient(circle, #bee1f8 20%, #00d4ff 80%);
-	border: 1px solid rgb(17, 1, 1);
-}
 .body
 {
-	background-color:yellow;
-	background-image:url("https://cdn.pixabay.com/photo/2016/07/23/04/05/business-1536236_960_720.png");
+	background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("https://cdn.pixabay.com/photo/2016/07/23/04/05/business-1536236_960_720.png");
 	background-size:100% 100%;
 }
 .container
@@ -47,12 +47,9 @@ table, th, td {
   position: relative;
   top: 60%;
   width: auto;
-  text-align: center;
+  text-align: left;
+  margin-left: 40%;
   font-size: 18px;
   padding-top: 50px;
   padding-bottom: 200px;
-}
-.table
-{
-	margin-left: 38%;
 }

@@ -32,15 +32,29 @@ tr
 
 table, th, td {
 	align-content: center;
-	width: 40%;
-	background-image: radial-gradient(circle, #bee1f8 20%, #00d4ff 80%);
-	border: 1px solid rgb(17, 1, 1);
+	width: 50%;
+	padding: 10px;
+	border: 1px solid rgb(241, 236, 236);
+}
+tr:nth-child(even)
+{
+    background-color: #2387ca;
+    padding : 10px;
+}
+tr:nth-child(odd)
+{
+    background-color: #9bcae9;
+    padding : 10px;
 }
 .body
 {
-	background-color:yellow;
-	background-image:url("https://cdn.pixabay.com/photo/2016/07/23/04/05/business-1536236_960_720.png");
+	background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(https://i0.wp.com/seoautopilotcoupon.com/wp-content/uploads/2019/02/SEO-Autopilot-VPS-set-up.jpg?fit=800%2C400&ssl=1);
 	background-size:100% 100%;
+}
+h1
+{
+	text-transform: uppercase;
+	text-shadow: 2px 2px 2px lightskyblue;
 }
 .container
 {
@@ -54,5 +68,5 @@ table, th, td {
 }
 .table
 {
-	margin-left: 20%;
+	margin-left: 2%;
 }
