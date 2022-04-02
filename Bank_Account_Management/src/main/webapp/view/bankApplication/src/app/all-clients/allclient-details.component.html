@@ -2,12 +2,51 @@
   <button type="button" class="btn-float-left" (click)="home()">Home Page</button>
   <button type="button" class="btn-float-right" (click)="logout()">Logout</button>
   
+  
   <br>
   <div class="container">
       <div class="heading">
           <h1>Account Details</h1>
       </div>
+      <input class="search" [(ngModel)]="sName"value="Enter the name">
+      <button (click)="onSearch()">Search</button>
       <div class="table">
+      <div *ngIf="searchStatus" >
+        <button (click)="onClose()">close</button>
+        <table border="1">
+          <thead class="thead-dark">
+            <tr >
+              <th>Client Id</th>
+              <th>First Name</th>
+              <th >Last Name</th>
+              <th>Account No</th>
+              <th>Username</th>
+              <th >DOJ</th>
+              <th >Current Balance</th>
+              <th >Email</th>
+              <th >Mobile</th>
+              <th >Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let client of sClients">
+              <td>{{ client.clientid }}</td>
+              <td>{{ client.firstname }}</td>
+              <td>{{ client.lastname }}</td>
+              <td>{{ client.clientaccount }}</td>
+              <td>{{ client.username }}</td>
+              <td>{{ client.doj }}</td>
+              <td>{{ client.accountbalance }}</td>
+              <td>{{ client.email }}</td>
+              <td>{{ client.mobileno }}</td>
+              <td>{{ client.clientaddress }}</td>
+              <td><button (click)="updateClient(client.clientaccount)">update</button></td>
+              <td><button (click)="deleteClient(client.clientaccount)">delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="totalStatus" >
         <table border="1">
           <thead class="thead-dark">
             <tr >
@@ -21,8 +60,6 @@
               <th scope="col">Email</th>
               <th scope="col">Mobile</th>
               <th scope="col">Address</th>
-              <th scope="col">Update</th>
-              <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +79,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
       <br>
   </div>

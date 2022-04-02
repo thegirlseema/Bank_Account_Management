@@ -12,6 +12,10 @@ import { Login } from '../model/login';
 })
 export class AllClients implements OnInit {
   clients: Client[]=[];
+  sClients: Client[]=[];
+  sName:string='';
+  searchStatus:boolean=false;
+  totalStatus:boolean=true;
   constructor(private router: Router,private clientService:ClientService, private route: ActivatedRoute) {
 }
 
@@ -23,6 +27,34 @@ export class AllClients implements OnInit {
   setClient(clients:Client[])
   {
     this.clients=clients;
+  }
+  onSearch(){
+    this.totalStatus=false;
+    this.searchStatus=true;
+    let len:number=this.sClients.length;
+    for(let i=0 ;i<len;i++  )
+    {
+      this.sClients.pop();
+    }
+    for(let c of this.clients)
+    {
+      if(c.firstname.toLowerCase().startsWith(this.sName.toLowerCase()))
+      {
+        this.sClients.push(c);
+      }
+    }
+  }
+  onClose()
+  {
+    this.sName='';
+    this.totalStatus=true;
+    this.searchStatus=false;
+    let len:number=this.sClients.length;
+    console.log(len);
+    for(let i=0 ;i<len;i++  )
+    {
+      this.sClients.pop();
+    }
   }
   logout() {
     this.router.navigate(['/login']);
